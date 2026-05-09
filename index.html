@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>행복한교회 | 경북 문경 | 날마다 예수 그리스도로 행복을 경험하는 교회</title>
+  <meta name="description" content="경북 문경시 신흥시장길에 위치한 행복한교회입니다. 주일예배 오전 11시·오후 1시30분, 수요예배 오후 7시30분. 날마다 예수 그리스도로 행복을 경험하는 교회입니다." />
+  <meta name="keywords" content="행복한교회, 문경교회, 문경시교회, 경북교회, 문경개신교, 문경신흥시장, 행복한교회문경" />
+  <link rel="canonical" href="https://happy1ch.github.io/HOMEPAGE/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="행복한교회 | 경북 문경" />
+  <meta property="og:description" content="날마다 예수 그리스도로 행복을 경험하는 교회 — 경북 문경시 신흥시장길 23-4" />
+  <meta property="og:image" content="https://happy1ch.github.io/HOMEPAGE/images/og-image.jpg" />
+  <meta property="og:url" content="https://happy1ch.github.io/HOMEPAGE/" />
+  <meta property="og:locale" content="ko_KR" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="행복한교회 | 경북 문경" />
+  <meta name="twitter:description" content="날마다 예수 그리스도로 행복을 경험하는 교회" />
+  <meta name="twitter:image" content="images/og-image.jpg" />
+
+  <!-- JSON-LD: LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Church",
+    "name": "행복한교회",
+    "alternateName": "Happy Church",
+    "description": "날마다 예수 그리스도로 행복을 경험하는 교회",
+    "url": "https://happy1ch.github.io/HOMEPAGE/",
+    "telephone": "010-9819-5199",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "신흥시장길 23-4",
+      "addressLocality": "문경시",
+      "addressRegion": "경북",
+      "postalCode": "36930",
+      "addressCountry": "KR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 36.5934,
+      "longitude": 128.1912
+    },
+    "openingHours": ["Su 11:00-12:00", "Su 13:30-14:30", "We 19:30-20:30"],
+    "sameAs": ["https://www.youtube.com/@happy1ch"]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0D2B45;
+      --teal:   #1A6B72;
+      --gold:   #D4A843;
+      --light:  #F7F5F0;
+      --white:  #FFFFFF;
+      --gray:   #6B7280;
+      --text:   #1C1C1E;
+      --radius: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 64px;
+      background: rgba(13, 43, 69, 0.92);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-logo {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.82);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-yt {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.82);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-yt:hover { color: #FF0000; }
+    .nav-yt svg { width: 22px; height: 22px; }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background: linear-gradient(160deg, var(--navy) 0%, var(--teal) 100%);
+    }
+
+    #hero .bg-photo {
+      position: absolute;
+      inset: 0;
+      background: url('images/church.jpg') center/cover no-repeat;
+      opacity: 0.25;
+    }
+
+    #hero .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(13,43,69,0.7) 0%, rgba(26,107,114,0.6) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 120px 20px 80px;
+      max-width: 720px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(212, 168, 67, 0.25);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 6px 18px;
+      border-radius: 999px;
+      margin-bottom: 28px;
+    }
+
+    .hero-content h1 {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(2.6rem, 7vw, 4.2rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.25;
+      margin-bottom: 20px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-content .tagline {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: rgba(255,255,255,0.88);
+      font-weight: 300;
+      margin-bottom: 44px;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+      padding: 14px 32px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(212,168,67,0.4);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(212,168,67,0.5); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      padding: 14px 32px;
+      border-radius: 999px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: 2px solid rgba(255,255,255,0.5);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.5);
+      font-size: 0.78rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      animation: bounce 2s infinite;
+    }
+    .scroll-hint svg { width: 20px; height: 20px; }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 96px 5%; }
+
+    .section-tag {
+      display: inline-block;
+      color: var(--teal);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.3;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--gray);
+      max-width: 520px;
+      line-height: 1.8;
+    }
+
+    /* ── WORSHIP ── */
+    #worship { background: var(--light); }
+
+    #worship .inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    #worship header { margin-bottom: 56px; }
+
+    .worship-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .worship-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .worship-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
+
+    .worship-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--navy), var(--teal));
+    }
+
+    .worship-icon {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, var(--navy), var(--teal));
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+    }
+
+    .worship-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .worship-time {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .time-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .time-label {
+      font-size: 0.78rem;
+      color: var(--gray);
+      font-weight: 500;
+      min-width: 60px;
+    }
+
+    .time-value {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--teal);
+      font-feature-settings: 'tnum';
+    }
+
+    /* ── ABOUT ── */
+    #about .inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .about-text .section-sub { max-width: 100%; margin-top: 28px; }
+
+    .about-text blockquote {
+      margin: 32px 0;
+      padding: 24px 28px;
+      background: var(--light);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 12px 12px 0;
+      font-family: 'Noto Serif KR', serif;
+      font-size: 1.05rem;
+      color: var(--navy);
+      line-height: 1.8;
+    }
+
+    .about-text .values {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .value-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .value-dot {
+      width: 8px; height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+
+    .value-item p { font-size: 0.95rem; color: var(--text); line-height: 1.7; }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image img,
+    .about-image .img-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+
+    .img-placeholder {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+      gap: 12px;
+    }
+
+    .img-placeholder svg { width: 48px; height: 48px; opacity: 0.5; }
+
+    .about-image .badge-float {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 16px 20px;
+      border-radius: 14px;
+      line-height: 1.4;
+      box-shadow: 0 8px 24px rgba(212,168,67,0.4);
+    }
+
+    /* ── YOUTUBE ── */
+    #media { background: var(--navy); }
+
+    #media .inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    #media .section-tag { color: var(--gold); }
+    #media .section-title { color: var(--white); }
+    #media .section-sub { color: rgba(255,255,255,0.65); }
+
+    .yt-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 32px;
+      background: #FF0000;
+      color: var(--white);
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(255,0,0,0.35);
+    }
+    .yt-link:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,0,0,0.45); }
+    .yt-link svg { width: 24px; height: 24px; }
+
+    .yt-embed {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      aspect-ratio: 16/9;
+    }
+
+    .yt-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* ── LOCATION ── */
+    #location .inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    #location header { margin-bottom: 48px; }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .location-info {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .info-block { display: flex; flex-direction: column; gap: 6px; }
+
+    .info-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--teal);
+      text-transform: uppercase;
+    }
+
+    .info-value {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .info-value a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .info-value a:hover { color: var(--teal); }
+
+    .map-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .map-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+    .map-btn:hover { transform: translateY(-2px); }
+
+    .map-btn.naver {
+      background: #03C75A;
+      color: var(--white);
+    }
+
+    .map-btn.kakao {
+      background: #FAE100;
+      color: #3A1D1D;
+    }
+
+    .map-frame {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      height: 360px;
+    }
+
+    .map-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #07192A;
+      color: rgba(255,255,255,0.55);
+      padding: 48px 5%;
+    }
+
+    footer .inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    footer .brand {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    footer p { font-size: 0.85rem; line-height: 1.7; }
+
+    footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+
+      #about .inner,
+      #media .inner,
+      .location-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      #media .inner { direction: ltr; }
+
+      .about-image .badge-float {
+        bottom: 12px;
+        right: 12px;
+      }
+
+      section { padding: 72px 5%; }
+
+      footer .inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">행복한교회</a>
+    <ul class="nav-links">
+      <li><a href="#worship">예배 안내</a></li>
+      <li><a href="#about">교회 소개</a></li>
+      <li><a href="#media">미디어</a></li>
+      <li><a href="#location">오시는 길</a></li>
+    </ul>
+    <a href="https://www.youtube.com/@happy1ch" target="_blank" rel="noopener" class="nav-yt" aria-label="유튜브 채널">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>
+      유튜브
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="bg-photo" role="img" aria-label="행복한교회 전경"></div>
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">경북 문경 · 개신교회</div>
+      <h1>행복한교회</h1>
+      <p class="tagline">
+        날마다 예수 그리스도로<br>
+        행복을 경험하는 교회
+      </p>
+      <div class="hero-buttons">
+        <a href="#worship" class="btn-primary">예배 시간 보기</a>
+        <a href="#location" class="btn-outline">오시는 길</a>
+      </div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      스크롤
+    </div>
+  </section>
+
+  <!-- WORSHIP -->
+  <section id="worship">
+    <div class="inner">
+      <header>
+        <div class="section-tag">예배 안내</div>
+        <h2 class="section-title">함께 예배드려요</h2>
+        <p class="section-sub">누구나 환영합니다. 처음 오시는 분도 편안하게 오실 수 있습니다.</p>
+      </header>
+
+      <div class="worship-grid">
+        <div class="worship-card">
+          <div class="worship-icon">🙏</div>
+          <h3>주일 오전 예배</h3>
+          <div class="worship-time">
+            <div class="time-row">
+              <span class="time-label">주일</span>
+              <span class="time-value">오전 11:00</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="worship-card">
+          <div class="worship-icon">✝️</div>
+          <h3>주일 오후 예배</h3>
+          <div class="worship-time">
+            <div class="time-row">
+              <span class="time-label">주일</span>
+              <span class="time-value">오후 1:30</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="worship-card">
+          <div class="worship-icon">📖</div>
+          <h3>수요 예배</h3>
+          <div class="worship-time">
+            <div class="time-row">
+              <span class="time-label">수요일</span>
+              <span class="time-value">오후 7:30</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="inner">
+      <div class="about-text">
+        <div class="section-tag">교회 소개</div>
+        <h2 class="section-title">행복을<br>나누는 교회</h2>
+        <blockquote>
+          "날마다 예수 그리스도로<br>행복을 경험하는 교회"
+        </blockquote>
+        <div class="values">
+          <div class="value-item">
+            <div class="value-dot"></div>
+            <p>예수 그리스도 안에서 참된 행복을 발견하고 나누는 공동체입니다.</p>
+          </div>
+          <div class="value-item">
+            <div class="value-dot"></div>
+            <p>경북 문경 지역에서 이웃과 함께하며 지역 사회를 섬기고 있습니다.</p>
+          </div>
+          <div class="value-item">
+            <div class="value-dot"></div>
+            <p>처음 교회를 방문하시는 분도 편안하게 믿음을 시작할 수 있도록 돕습니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-image">
+        <img src="images/church.jpg" alt="행복한교회 외관 — 경북 문경시 신흥시장길 23-4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="img-placeholder" style="display:none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          행복한교회
+        </div>
+        <div class="badge-float">
+          경북 문경<br>행복한교회
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- YOUTUBE / MEDIA -->
+  <section id="media">
+    <div class="inner">
+      <div>
+        <div class="section-tag">미디어</div>
+        <h2 class="section-title">유튜브로<br>말씀을 들어요</h2>
+        <p class="section-sub">예배 영상, 설교, 교회 소식을 유튜브 채널에서 만나보세요.</p>
+        <a href="https://www.youtube.com/@happy1ch" target="_blank" rel="noopener" class="yt-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>
+          채널 구독하기
+        </a>
+      </div>
+
+      <div class="yt-embed">
+        <iframe
+          src="https://www.youtube.com/embed?listType=user_uploads&list=happy1ch&rel=0"
+          title="행복한교회 유튜브 채널"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section id="location">
+    <div class="inner">
+      <header>
+        <div class="section-tag">오시는 길</div>
+        <h2 class="section-title">행복한교회로<br>오세요</h2>
+      </header>
+
+      <div class="location-grid">
+        <div class="location-info">
+          <div class="info-block">
+            <span class="info-label">주소</span>
+            <span class="info-value">경북 문경시 신흥시장길 23-4</span>
+          </div>
+          <div class="info-block">
+            <span class="info-label">전화</span>
+            <span class="info-value">
+              <a href="tel:010-9819-5199">010-9819-5199</a>
+            </span>
+          </div>
+          <div class="info-block">
+            <span class="info-label">예배 시간</span>
+            <span class="info-value">
+              주일 오전 11:00<br>
+              주일 오후 1:30<br>
+              수요일 오후 7:30
+            </span>
+          </div>
+          <div class="info-block">
+            <span class="info-label">지도</span>
+            <div class="map-buttons">
+              <a href="https://map.naver.com/p/search/%ED%96%89%EB%B3%B5%ED%95%9C%EA%B5%90%ED%9A%8C%20%EB%AC%B8%EA%B2%BD" target="_blank" rel="noopener" class="map-btn naver">
+                네이버지도
+              </a>
+              <a href="https://map.kakao.com/?q=%ED%96%89%EB%B3%B5%ED%95%9C%EA%B5%90%ED%9A%8C+%EB%AC%B8%EA%B2%BD" target="_blank" rel="noopener" class="map-btn kakao">
+                카카오맵
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-frame">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3196.3!2d128.1912!3d36.5934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z6rWQ67aB7ZWc6rWQ7ZWY!5e0!3m2!1sko!2skr!4v1"
+            title="행복한교회 위치 지도"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="inner">
+      <div>
+        <div class="brand">행복한교회</div>
+        <p style="margin-top:8px;">
+          경북 문경시 신흥시장길 23-4<br>
+          <a href="tel:010-9819-5199">010-9819-5199</a>
+        </p>
+      </div>
+      <p style="text-align:right;">
+        <a href="https://www.youtube.com/@happy1ch" target="_blank" rel="noopener">YouTube @happy1ch</a><br>
+        <span style="margin-top:6px; display:block;">© 2025 행복한교회. All rights reserved.</span>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
