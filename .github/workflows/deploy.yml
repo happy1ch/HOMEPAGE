@@ -4,7 +4,10 @@ on:
   push:
     branches: ["main"]
   schedule:
-    - cron: '30 2 * * 0'  # 매주 일요일 오전 11:30 KST (UTC 02:30)
+    - cron: '30 2 * * 0'   # 일 11:30 KST — 오전예배 시작
+    - cron: '0  5 * * 0'   # 일 14:00 KST — 오전예배 녹화 반영
+    - cron: '0  8 * * 0'   # 일 17:00 KST — 오후예배 녹화 반영
+    - cron: '30 13 * * 3'  # 수 22:30 KST — 수요예배 녹화 반영
   workflow_dispatch:
 
 permissions:

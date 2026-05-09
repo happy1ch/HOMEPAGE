@@ -244,6 +244,11 @@
     }
     .scroll-hint svg { width: 20px; height: 20px; }
 
+    @keyframes livepulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.3); }
+    }
+
     @keyframes bounce {
       0%, 100% { transform: translateX(-50%) translateY(0); }
       50% { transform: translateX(-50%) translateY(6px); }
@@ -763,23 +768,29 @@
   <section id="media">
     <div class="inner">
       <div>
-        <div class="section-tag">미디어</div>
-        <h2 class="section-title">유튜브로<br>말씀을 들어요</h2>
-        <p class="section-sub">예배 영상, 설교, 교회 소식을 유튜브 채널에서 만나보세요.</p>
+        <div class="section-tag" id="media-tag">미디어</div>
+        <h2 class="section-title" id="media-title">유튜브로<br>말씀을 들어요</h2>
+        <p class="section-sub" id="media-sub">예배 영상, 설교, 교회 소식을 유튜브 채널에서 만나보세요.</p>
         <a href="https://www.youtube.com/@happy1ch" target="_blank" rel="noopener" class="yt-link">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>
           채널 구독하기
         </a>
       </div>
 
-      <div class="yt-embed">
-        <iframe
-          src="https://www.youtube.com/embed/moN7B7A14cI?rel=0&modestbranding=1"
-          title="행복한교회 유튜브 채널"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          loading="lazy">
-        </iframe>
+      <div style="position:relative;">
+        <div id="live-badge" style="display:none; position:absolute; top:-16px; right:0; background:#FF0000; color:#fff; font-size:0.78rem; font-weight:700; letter-spacing:0.08em; padding:5px 14px; border-radius:999px; align-items:center; gap:6px; z-index:10;">
+          <span style="width:8px;height:8px;background:#fff;border-radius:50%;display:inline-block;animation:livepulse 1s infinite;"></span>
+          LIVE
+        </div>
+        <div class="yt-embed">
+          <iframe
+            id="sermon-iframe"
+            src="https://www.youtube.com/embed/moN7B7A14cI?rel=0&modestbranding=1"
+            title="행복한교회 예배 영상"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
       </div>
     </div>
   </section>
@@ -855,5 +866,47 @@
     </div>
   </footer>
 
+  <script>
+    (function () {
+      const CHANNEL_ID = 'UC2seq9scvYNM-_Inf3AFmag';
+
+      // KST 예배 시간: [요일(0=일,3=수), 시작시(h), 시작분(m), 지속시간(분)]
+      const services = [
+        { day: 0, h: 11, m:  0, dur: 90, name: '주일 오전 예배' },
+        { day: 0, h: 13, m: 30, dur: 90, name: '주일 오후 예배' },
+        { day: 3, h: 19, m: 30, dur: 90, name: '수요 예배' },
+      ];
+
+      function getLiveService() {
+        const kst = new Date(Date.now() + 9 * 3600 * 1000);
+        const day = kst.getUTCDay();
+        const cur = kst.getUTCHours() * 60 + kst.getUTCMinutes();
+        return services.find(s => {
+          if (s.day !== day) return false;
+          const start = s.h * 60 + s.m;
+          return cur >= start && cur < start + s.dur;
+        });
+      }
+
+      function update() {
+        const iframe = document.getElementById('sermon-iframe');
+        const badge  = document.getElementById('live-badge');
+        const tag    = document.getElementById('media-tag');
+        const title  = document.getElementById('media-title');
+        const sub    = document.getElementById('media-sub');
+        const live   = getLiveService();
+
+        if (live) {
+          iframe.src = 'https://www.youtube.com/embed/live_stream?channel=' + CHANNEL_ID + '&rel=0&modestbranding=1';
+          badge.style.display = 'flex';
+          tag.textContent   = '🔴 실시간 중계';
+          title.innerHTML   = live.name + '<br>지금 생방송 중';
+          sub.textContent   = '지금 예배가 진행 중입니다. 함께 예배드려요.';
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', update);
+    })();
+  </script>
 </body>
 </html>
