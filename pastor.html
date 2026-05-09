@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>담임목사 소개 | 행복한교회</title>
+  <meta name="description" content="행복한교회 담임목사를 소개합니다. 날마다 예수 그리스도로 행복을 경험하는 교회입니다." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0D2B45;
+      --teal:   #1A6B72;
+      --gold:   #D4A843;
+      --light:  #F7F5F0;
+      --white:  #FFFFFF;
+      --gray:   #6B7280;
+      --text:   #1C1C1E;
+      --radius: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 18px;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 64px;
+      background: rgba(13, 43, 69, 0.92);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-logo {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.82);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--gold); }
+
+    .nav-yt {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.82);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-yt:hover { color: #FF0000; }
+    .nav-yt svg { width: 22px; height: 22px; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: linear-gradient(160deg, var(--navy) 0%, var(--teal) 100%);
+      padding: 140px 5% 80px;
+      text-align: center;
+      color: var(--white);
+    }
+
+    .page-header h1 {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .page-header p {
+      color: rgba(255,255,255,0.8);
+      font-size: 1.1rem;
+    }
+
+    /* ── PASTOR PROFILE ── */
+    .pastor-section {
+      padding: 80px 5%;
+      background: var(--light);
+    }
+
+    .pastor-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .pastor-photo {
+      background: var(--white);
+      padding: 16px;
+      border-radius: var(--radius);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .pastor-photo img {
+      width: 100%;
+      border-radius: calc(var(--radius) - 8px);
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      background: #e2e8f0;
+    }
+
+    .photo-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+      border-radius: calc(var(--radius) - 8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #64748b;
+      font-size: 0.95rem;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .photo-placeholder svg { width: 48px; height: 48px; opacity: 0.6; }
+
+    .pastor-name-badge {
+      margin-top: 20px;
+    }
+
+    .pastor-name-badge h2 {
+      font-family: 'Noto Serif KR', serif;
+      color: var(--navy);
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .pastor-name-badge p {
+      color: var(--teal);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .pastor-content {
+      background: var(--white);
+      padding: 48px;
+      border-radius: var(--radius);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.05);
+    }
+
+    .greeting-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 1.8rem;
+      color: var(--navy);
+      margin-bottom: 24px;
+      line-height: 1.4;
+    }
+    .greeting-title span { color: var(--gold); }
+
+    .greeting-text {
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 1.05rem;
+      margin-bottom: 40px;
+      white-space: pre-line;
+    }
+
+    .history-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .history-title::before {
+      content: '';
+      display: block;
+      width: 24px; height: 3px;
+      background: var(--gold);
+    }
+
+    .history-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .history-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .history-dot {
+      width: 8px; height: 8px;
+      background: var(--teal);
+      border-radius: 50%;
+      margin-top: 9px;
+      flex-shrink: 0;
+    }
+
+    .history-item p {
+      font-size: 1rem;
+      color: var(--gray);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #07192A;
+      color: rgba(255,255,255,0.55);
+      padding: 48px 5%;
+    }
+    footer .inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    footer .brand { font-family: 'Noto Serif KR', serif; font-size: 1.1rem; font-weight: 700; color: var(--white); }
+    footer p { font-size: 0.85rem; line-height: 1.7; }
+    footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .pastor-inner { grid-template-columns: 1fr; gap: 40px; }
+      .pastor-content { padding: 32px 24px; }
+      footer .inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">행복한교회</a>
+    <ul class="nav-links">
+      <li><a href="index.html#worship">예배 안내</a></li>
+      <li><a href="index.html#about">교회 소개</a></li>
+      <li><a href="pastor.html" class="active">담임목사 소개</a></li>
+      <li><a href="index.html#media">미디어</a></li>
+      <li><a href="index.html#location">오시는 길</a></li>
+    </ul>
+    <a href="https://www.youtube.com/@happy1ch" target="_blank" rel="noopener" class="nav-yt" aria-label="유튜브 채널">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>
+      유튜브
+    </a>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <h1>담임목사 소개</h1>
+    <p>행복한교회에서 참된 평안과 은혜를 나누기를 소망합니다.</p>
+  </header>
+
+  <!-- PASTOR PROFILE -->
+  <section class="pastor-section">
+    <div class="pastor-inner">
+      <!-- Photo Sidebar -->
+      <div class="pastor-photo">
+        <!-- Replace src with actual image path (e.g., images/pastor.jpg) -->
+        <img src="images/pastor.jpg" alt="담임목사 사진" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="photo-placeholder" style="display:none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          사진이 준비 중입니다
+        </div>
+        <div class="pastor-name-badge">
+          <h2>최성광</h2>
+          <p>담임목사</p>
+        </div>
+      </div>
+
+      <!-- Content Area -->
+      <div class="pastor-content">
+        <h3 class="greeting-title">
+          "행복한교회에 오신 여러분을<br>
+          주님의 이름으로 <span>환영</span>합니다."
+        </h3>
+        
+        <div class="greeting-text">
+          할렐루야! 행복한교회에 오신 여러분을 주님의 이름으로 진심으로 환영합니다.
+
+          교회는 예수 그리스도로 인해 참된 행복을 누리는 곳이 되어야 합니다. 
+          살아계신 하나님의 말씀을 깊이 배우고, 그 말씀을 삶 속에서 온전히 실천하는 곳이 바로 참된 교회입니다.
+
+          우리 행복한교회에는 이처럼 주님의 말씀대로 살아가며 기쁨을 누리는 행복한 성도들이 있습니다. 
+          이곳에 발걸음하신 여러분도 예수 그리스도 안에서 참된 평안을 얻고, 영원한 기쁨을 누리는 '행복한 성도'가 되시기를 간절히 소망합니다.
+
+          주님 안에서 늘 강건하시고, 가정과 삶의 모든 자리에 하나님의 크신 은혜가 가득하시기를 축복합니다.
+        </div>
+
+        <h4 class="history-title">약력</h4>
+        <ul class="history-list">
+          <li class="history-item">
+            <div class="history-dot"></div>
+            <p>고려신학대학원 54회 졸업</p>
+          </li>
+          <li class="history-item">
+            <div class="history-dot"></div>
+            <p>2017년 12월 행복한교회 시작 (담임목사)</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="inner">
+      <div>
+        <div class="brand">행복한교회</div>
+        <p style="margin-top:8px;">
+          경북 문경시 신흥시장길 23-4<br>
+          <a href="tel:010-9819-5199">010-9819-5199</a>
+        </p>
+      </div>
+      <p style="text-align:right;">
+        <a href="https://www.youtube.com/@happy1ch" target="_blank" rel="noopener">YouTube @happy1ch</a><br>
+        <span style="margin-top:6px; display:block;">© 2025 행복한교회. All rights reserved.</span>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
