@@ -3,6 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: ["main"]
+  schedule:
+    - cron: '30 2 * * 0'  # 매주 일요일 오전 11:30 KST (UTC 02:30)
   workflow_dispatch:
 
 permissions:
@@ -23,6 +25,28 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Update sermon video (schedule / manual only)
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: |
+          RSS=$(curl -s "https://www.youtube.com/feeds/videos.xml?channel_id=UC2seq9scvYNM-_Inf3AFmag")
+          VIDEO_ID=$(echo "$RSS" | grep -o '<yt:videoId>[^<]*' | sed 's/<yt:videoId>//' | head -1)
+          echo "Latest video: $VIDEO_ID"
+          export VIDEO_ID
+          python3 - <<'EOF'
+import re, os
+with open('index.html', 'r', encoding='utf-8') as f:
+    content = f.read()
+vid = os.environ['VIDEO_ID']
+content = re.sub(
+    r'src="https://www\.youtube\.com/embed/[^"]*"',
+    f'src="https://www.youtube.com/embed/{vid}?rel=0&modestbranding=1"',
+    content
+)
+with open('index.html', 'w', encoding='utf-8') as f:
+    f.write(content)
+print(f'Sermon updated to: {vid}')
+EOF
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
