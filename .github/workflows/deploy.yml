@@ -37,19 +37,19 @@ jobs:
           echo "Latest video: $VIDEO_ID"
           export VIDEO_ID
           python3 - <<'EOF'
-import re, os
-with open('index.html', 'r', encoding='utf-8') as f:
-    content = f.read()
-vid = os.environ['VIDEO_ID']
-content = re.sub(
-    r'src="https://www\.youtube\.com/embed/[^"]*"',
-    f'src="https://www.youtube.com/embed/{vid}?rel=0&modestbranding=1"',
-    content
-)
-with open('index.html', 'w', encoding='utf-8') as f:
-    f.write(content)
-print(f'Sermon updated to: {vid}')
-EOF
+          import re, os
+          with open('index.html', 'r', encoding='utf-8') as f:
+              content = f.read()
+          vid = os.environ['VIDEO_ID']
+          content = re.sub(
+              r'src="https://www\.youtube\.com/embed/[^"]*"',
+              f'src="https://www.youtube.com/embed/{vid}?rel=0&modestbranding=1"',
+              content
+          )
+          with open('index.html', 'w', encoding='utf-8') as f:
+              f.write(content)
+          print(f'Sermon updated to: {vid}')
+          EOF
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
