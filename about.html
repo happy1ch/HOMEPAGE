@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>담임목사 소개 | 행복한교회</title>
-  <meta name="description" content="행복한교회 담임목사를 소개합니다. 날마다 예수 그리스도로 행복을 경험하는 교회입니다." />
+  <title>교회 소개 | 행복한교회</title>
+  <meta name="description" content="행복한교회를 소개합니다. 날마다 예수 그리스도로 행복을 경험하는 교회입니다." />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -109,135 +109,105 @@
       font-size: 1.1rem;
     }
 
-    /* ── PASTOR PROFILE ── */
-    .pastor-section {
+    /* ── CONTENT SECTION ── */
+    section {
       padding: 80px 5%;
-      background: var(--light);
     }
 
-    .pastor-inner {
+    .section-inner {
       max-width: 1100px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 64px;
-      align-items: start;
     }
 
-    .pastor-photo {
-      background: var(--white);
-      padding: 16px;
-      border-radius: var(--radius);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+    /* ── VISION ── */
+    .vision-section {
+      background: var(--light);
       text-align: center;
     }
 
-    .pastor-photo img {
-      width: 100%;
-      border-radius: calc(var(--radius) - 8px);
-      aspect-ratio: 3/4;
-      object-fit: cover;
-      background: #e2e8f0;
-    }
-
-    .photo-placeholder {
-      width: 100%;
-      aspect-ratio: 3/4;
-      background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
-      border-radius: calc(var(--radius) - 8px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #64748b;
-      font-size: 0.95rem;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .photo-placeholder svg { width: 48px; height: 48px; opacity: 0.6; }
-
-    .pastor-name-badge {
-      margin-top: 20px;
-    }
-
-    .pastor-name-badge h2 {
-      font-family: 'Noto Serif KR', serif;
-      color: var(--navy);
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .pastor-name-badge p {
-      color: var(--teal);
-      font-weight: 700;
-      font-size: 1rem;
-    }
-
-    .pastor-content {
+    .vision-card {
       background: var(--white);
-      padding: 48px;
+      padding: 60px 40px;
       border-radius: var(--radius);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.05);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+      margin-bottom: 60px;
     }
 
-    .greeting-title {
+    .vision-card h2 {
+      font-family: 'Noto Serif KR', serif;
+      color: var(--navy);
+      font-size: 2.2rem;
+      margin-bottom: 24px;
+    }
+    .vision-card h2 span { color: var(--gold); }
+
+    .vision-card p {
+      font-size: 1.2rem;
+      color: var(--gray);
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* ── HISTORY / ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 64px;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    .about-image {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+    }
+
+    .about-image img {
+      width: 100%;
+      display: block;
+      transition: transform 0.5s;
+    }
+    .about-image:hover img { transform: scale(1.05); }
+
+    .about-text h3 {
       font-family: 'Noto Serif KR', serif;
       font-size: 1.8rem;
       color: var(--navy);
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
       margin-bottom: 24px;
-      line-height: 1.4;
-    }
-    .greeting-title span { color: var(--gold); }
-
-    .greeting-text {
-      color: var(--text);
-      line-height: 1.8;
       font-size: 1.05rem;
-      margin-bottom: 40px;
-      white-space: pre-line;
+      color: var(--text);
     }
 
-    .history-title {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .history-title::before {
-      content: '';
-      display: block;
-      width: 24px; height: 3px;
-      background: var(--gold);
-    }
-
-    .history-list {
+    .value-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-    }
-
-    .history-item {
-      display: flex;
-      align-items: flex-start;
       gap: 16px;
     }
 
-    .history-dot {
-      width: 8px; height: 8px;
-      background: var(--teal);
+    .value-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .value-dot {
+      width: 10px; height: 10px;
+      background: var(--gold);
       border-radius: 50%;
-      margin-top: 9px;
+      margin-top: 8px;
       flex-shrink: 0;
     }
 
-    .history-item p {
-      font-size: 1rem;
-      color: var(--gray);
+    .value-item p {
+      font-weight: 500;
+      color: var(--navy);
     }
 
     /* ── FOOTER ── */
@@ -263,8 +233,8 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       .nav-links { display: none; }
-      .pastor-inner { grid-template-columns: 1fr; gap: 40px; }
-      .pastor-content { padding: 32px 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .vision-card { padding: 40px 24px; }
       footer .inner { flex-direction: column; text-align: center; }
     }
   </style>
@@ -276,8 +246,8 @@
     <a href="index.html" class="nav-logo">행복한교회</a>
     <ul class="nav-links">
       <li><a href="index.html#worship">예배 안내</a></li>
-      <li><a href="about.html">교회 소개</a></li>
-      <li><a href="pastor.html" class="active">담임목사 소개</a></li>
+      <li><a href="about.html" class="active">교회 소개</a></li>
+      <li><a href="pastor.html">담임목사 소개</a></li>
       <li><a href="index.html#media">미디어</a></li>
       <li><a href="index.html#location">오시는 길</a></li>
     </ul>
@@ -289,57 +259,57 @@
 
   <!-- PAGE HEADER -->
   <header class="page-header">
-    <h1>담임목사 소개</h1>
-    <p>행복한교회에서 참된 평안과 은혜를 나누기를 소망합니다.</p>
+    <h1>교회 소개</h1>
+    <p>날마다 예수 그리스도로 행복을 경험하는 공동체</p>
   </header>
 
-  <!-- PASTOR PROFILE -->
-  <section class="pastor-section">
-    <div class="pastor-inner">
-      <!-- Photo Sidebar -->
-      <div class="pastor-photo">
-        <!-- Replace src with actual image path (e.g., images/pastor.jpg) -->
-        <img src="images/pastor.jpg" alt="담임목사 사진" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-        <div class="photo-placeholder" style="display:none;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          사진이 준비 중입니다
-        </div>
-        <div class="pastor-name-badge">
-          <h2>최성광</h2>
-          <p>담임목사</p>
-        </div>
+  <!-- VISION SECTION -->
+  <section class="vision-section">
+    <div class="section-inner">
+      <div class="vision-card">
+        <h2>교회 표어: <span>"날마다 행복한 성도"</span></h2>
+        <p>
+          행복한교회는 예수 그리스도 안에서 참된 행복을 발견하고,<br>
+          그 행복을 지역 사회와 이웃에게 나누는 사랑의 공동체입니다.
+        </p>
       </div>
+    </div>
+  </section>
 
-      <!-- Content Area -->
-      <div class="pastor-content">
-        <h3 class="greeting-title">
-          "행복한교회에 오신 여러분을<br>
-          주님의 이름으로 <span>환영</span>합니다."
-        </h3>
-        
-        <div class="greeting-text">
-          할렐루야! 행복한교회에 오신 여러분을 주님의 이름으로 진심으로 환영합니다.
-
-          교회는 예수 그리스도로 인해 참된 행복을 누리는 곳이 되어야 합니다. 
-          살아계신 하나님의 말씀을 깊이 배우고, 그 말씀을 삶 속에서 온전히 실천하는 곳이 바로 참된 교회입니다.
-
-          우리 행복한교회에는 이처럼 주님의 말씀대로 살아가며 기쁨을 누리는 행복한 성도들이 있습니다. 
-          이곳에 발걸음하신 여러분도 예수 그리스도 안에서 참된 평안을 얻고, 영원한 기쁨을 누리는 '행복한 성도'가 되시기를 간절히 소망합니다.
-
-          주님 안에서 늘 강건하시고, 가정과 삶의 모든 자리에 하나님의 크신 은혜가 가득하시기를 축복합니다.
+  <!-- ABOUT CONTENT -->
+  <section>
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-image">
+          <img src="images/church_about.jpg" alt="행복한교회 설립 감사 예배" />
         </div>
-
-        <h4 class="history-title">약력</h4>
-        <ul class="history-list">
-          <li class="history-item">
-            <div class="history-dot"></div>
-            <p>고려신학대학원 54회 졸업</p>
-          </li>
-          <li class="history-item">
-            <div class="history-dot"></div>
-            <p>2017년 12월 행복한교회 시작 (담임목사)</p>
-          </li>
-        </ul>
+        <div class="about-text">
+          <h3>행복한교회의 시작</h3>
+          <p>
+            행복한교회는 2017년 12월, 경북 문경 땅에 하나님의 나라를 확장하고 
+            영혼을 구원하는 사명을 띠고 첫 예배를 드렸습니다.
+          </p>
+          <p>
+            설립 당시의 뜨거웠던 은혜와 감동을 잊지 않고, 
+            지금도 오직 복음의 능력으로 한 영혼 한 영혼을 귀하게 여기며 
+            예수 그리스도의 사랑을 전하고 있습니다.
+          </p>
+          
+          <ul class="value-list">
+            <li class="value-item">
+              <div class="value-dot"></div>
+              <p>살아있는 하나님의 말씀을 배우는 교회</p>
+            </li>
+            <li class="value-item">
+              <div class="value-dot"></div>
+              <p>삶 속에서 말씀대로 실천하는 교회</p>
+            </li>
+            <li class="value-item">
+              <div class="value-dot"></div>
+              <p>지역 사회를 섬기며 행복을 나누는 교회</p>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
