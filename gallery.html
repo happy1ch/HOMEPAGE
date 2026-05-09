@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>갤러리 | 행복한교회</title>
+  <meta name="description" content="행복한교회의 활동 사진을 담은 갤러리입니다. 날마다 예수 그리스도로 행복을 경험하는 교회입니다." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #162D6E;
+      --teal:   #00B0A0;
+      --gold:   #D4A843;
+      --light:  #F7F5F0;
+      --white:  #FFFFFF;
+      --gray:   #6B7280;
+      --text:   #1C1C1E;
+      --radius: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 20px;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 64px;
+      background: rgba(22, 45, 110, 0.92);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-logo {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.82);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--gold); }
+
+    .nav-yt {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.82);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-yt:hover { color: #FF0000; }
+    .nav-yt svg { width: 22px; height: 22px; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: linear-gradient(160deg, var(--navy) 0%, var(--teal) 100%);
+      padding: 140px 5% 80px;
+      text-align: center;
+      color: var(--white);
+    }
+
+    .page-header h1 {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    /* ── GALLERY GRID ── */
+    section { padding: 80px 5%; background: var(--light); }
+
+    .gallery-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 32px;
+    }
+
+    .gallery-item {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+    }
+    .gallery-item:hover { transform: translateY(-8px); }
+
+    .gallery-img-wrapper {
+      width: 100%;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      background: #eee;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .gallery-item:hover img { transform: scale(1.1); }
+
+    .gallery-info {
+      padding: 24px;
+    }
+
+    .gallery-info h3 {
+      font-size: 1.2rem;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .gallery-info p {
+      font-size: 0.95rem;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #07192A;
+      color: rgba(255,255,255,0.55);
+      padding: 48px 5%;
+    }
+    footer .inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    footer .brand { font-family: 'Noto Serif KR', serif; font-size: 1.1rem; font-weight: 700; color: var(--white); }
+    footer p { font-size: 0.85rem; line-height: 1.7; }
+    footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      footer .inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">행복한교회</a>
+    <ul class="nav-links">
+      <li><a href="index.html#worship">예배 안내</a></li>
+      <li><a href="about.html">교회 소개</a></li>
+      <li><a href="pastor.html">담임목사 소개</a></li>
+      <li><a href="gallery.html" class="active">갤러리</a></li>
+      <li><a href="index.html#media">미디어</a></li>
+      <li><a href="index.html#location">오시는 길</a></li>
+    </ul>
+    <a href="https://www.youtube.com/@happy1ch" target="_blank" rel="noopener" class="nav-yt" aria-label="유튜브 채널">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>
+      유튜브
+    </a>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <h1>갤러리</h1>
+    <p>행복한교회의 소중한 추억과 사역의 현장입니다.</p>
+  </header>
+
+  <!-- GALLERY CONTENT -->
+  <section>
+    <div class="gallery-inner">
+      <div class="gallery-grid">
+        
+        <!-- Item 1: Founding -->
+        <div class="gallery-item">
+          <div class="gallery-img-wrapper">
+            <img src="images/gallery/founding.png" alt="행복한교회 설립 첫 예배" />
+          </div>
+          <div class="gallery-info">
+            <h3>설립의 감격</h3>
+            <p>2017년 12월 10일, 하나님의 인도하심으로 시작된 행복한교회 첫 예배의 모습입니다.</p>
+          </div>
+        </div>
+
+        <!-- Item 2: Mission Team -->
+        <div class="gallery-item">
+          <div class="gallery-img-wrapper">
+            <img src="images/gallery/mission.png" alt="늘사랑교회 전도팀과 연합" />
+          </div>
+          <div class="gallery-info">
+            <h3>연합과 선교</h3>
+            <p>2018년 여름, 늘사랑교회 전도팀과 함께 문경 땅에 복음을 전했던 뜨거운 현장입니다.</p>
+          </div>
+        </div>
+
+        <!-- Item 3: Market Service -->
+        <div class="gallery-item">
+          <div class="gallery-img-wrapper">
+            <img src="images/gallery/market.png" alt="시장 상인 차 봉사" />
+          </div>
+          <div class="gallery-info">
+            <h3>시장 상인 섬김</h3>
+            <p>7년 동안 한결같이 시장 상인분들에게 시원한 보리차와 따뜻한 차로 사랑을 전해왔습니다.</p>
+          </div>
+        </div>
+
+        <!-- Item 4: Nursing Home -->
+        <div class="gallery-item">
+          <div class="gallery-img-wrapper">
+            <img src="images/gallery/nursing.png" alt="요양원 사역" />
+          </div>
+          <div class="gallery-info">
+            <h3>사랑의 실천</h3>
+            <p>'우리 보금자리' 요양원에서 어르신들을 섬기며 주님의 사랑을 나누는 소중한 시간입니다.</p>
+          </div>
+        </div>
+
+        <!-- Item 5: Fellowship -->
+        <div class="gallery-item">
+          <div class="gallery-img-wrapper">
+            <img src="images/gallery/fellowship.png" alt="성도 세미나 및 예배" />
+          </div>
+          <div class="gallery-info">
+            <h3>말씀과 교제</h3>
+            <p>살아있는 하나님의 말씀을 배우고 성도 간의 깊은 교제를 나누는 행복한 공동체입니다.</p>
+          </div>
+        </div>
+
+        <!-- Item 6: Happy Concert -->
+        <div class="gallery-item">
+          <div class="gallery-img-wrapper">
+            <img src="images/gallery/concert.png" alt="행복한 콘서트" />
+          </div>
+          <div class="gallery-info">
+            <h3>찬양과 축제</h3>
+            <p>2018년 '행복한 콘서트'를 통해 지역 주민들과 함께 기쁨을 나누었던 음악회 현장입니다.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="inner">
+      <div>
+        <div class="brand">대한예수교장로회(고신) 행복한교회</div>
+        <p style="margin-top:8px;">
+          경북 문경시 신흥시장길 23-4, 2층<br>
+          전화: <a href="tel:054-554-6004">054-554-6004</a> / <a href="tel:010-9819-5199">010-9819-5199</a>
+        </p>
+      </div>
+      <p style="text-align:right;">
+        <a href="https://www.youtube.com/@happy1ch" target="_blank" rel="noopener">YouTube @happy1ch</a><br>
+        <span style="margin-top:6px; display:block;">© 2025 행복한교회. All rights reserved.</span>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
