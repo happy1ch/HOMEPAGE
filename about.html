@@ -46,7 +46,7 @@
       justify-content: space-between;
       padding: 0 5%;
       height: 64px;
-      background: rgba(13, 43, 69, 0.92);
+      background: rgba(13, 43, 69, 0.95);
       backdrop-filter: blur(8px);
     }
 
@@ -106,16 +106,16 @@
 
     .page-header p {
       color: rgba(255,255,255,0.8);
-      font-size: 1.4rem; /* 1.1rem에서 상향 */
+      font-size: 1.4rem;
     }
 
     /* ── CONTENT SECTION ── */
     section {
-      padding: 80px 5%;
+      padding: 100px 5%;
     }
 
     .section-inner {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
@@ -149,65 +149,84 @@
       line-height: 1.8;
     }
 
-    /* ── HISTORY / ABOUT ── */
-    .about-grid {
+    /* ── FEATURE ROW ── */
+    .feature-row {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 64px;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
       align-items: center;
-      margin-top: 40px;
+      margin-bottom: 120px;
     }
+    .feature-row.reverse {
+      grid-template-columns: 1fr 1fr;
+    }
+    .feature-row.reverse .feature-text { order: 1; }
+    .feature-row.reverse .feature-image { order: 2; }
 
-    .about-image {
+    .feature-image {
       border-radius: var(--radius);
       overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
     }
-
-    .about-image img {
+    .feature-image img {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
       display: block;
       transition: transform 0.5s;
     }
-    .about-image:hover img { transform: scale(1.05); }
+    .feature-image:hover img { transform: scale(1.05); }
 
-    .about-text h3 {
+    .feature-text h3 {
       font-family: 'Noto Serif KR', serif;
-      font-size: 2.8rem; /* 2.2rem에서 대폭 상향 */
+      font-size: 2.4rem;
       color: var(--navy);
       margin-bottom: 24px;
+      position: relative;
     }
-
-    .about-text p {
-      margin-bottom: 24px;
-      font-size: 1.05rem;
-      color: var(--text);
-    }
-
-    .value-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .value-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
-
-    .value-dot {
-      width: 10px; height: 10px;
+    .feature-text h3::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
       background: var(--gold);
-      border-radius: 50%;
-      margin-top: 8px;
-      flex-shrink: 0;
+      margin-top: 15px;
     }
 
-    .value-item p {
-      font-weight: 500;
-      color: var(--navy);
+    .feature-text p {
+      font-size: 1.1rem;
+      color: var(--text);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    /* ── UNITY SECTION ── */
+    .unity-box {
+      margin-top: 40px;
+      background: var(--light);
+      padding: 60px 5%;
+      border-radius: var(--radius);
+    }
+
+    .unity-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .unity-card {
+      background: var(--white);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+      text-align: center;
+    }
+
+    .unity-card h4 {
+      color: var(--teal);
+      font-size: 1.25rem;
+      margin-bottom: 15px;
     }
 
     /* ── FOOTER ── */
@@ -231,11 +250,10 @@
     footer a:hover { color: var(--gold); }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .about-grid { grid-template-columns: 1fr; gap: 40px; }
-      .vision-card { padding: 40px 24px; }
-      footer .inner { flex-direction: column; text-align: center; }
+    @media (max-width: 968px) {
+      .feature-row, .feature-row.reverse { grid-template-columns: 1fr; gap: 40px; }
+      .feature-row .feature-text, .feature-row .feature-image { order: unset !important; }
+      .vision-card h2 { font-size: 2rem; }
     }
   </style>
 </head>
@@ -245,11 +263,11 @@
   <nav>
     <a href="index.html" class="nav-logo">행복한교회</a>
     <ul class="nav-links">
-      <li><a href="index.html#worship">예배 안내</a></li>
+      <li><a href="index.html#hero">유튜브</a></li>
       <li><a href="about.html" class="active">교회 소개</a></li>
       <li><a href="pastor.html">담임목사 소개</a></li>
       <li><a href="gallery.html">갤러리</a></li>
-      <li><a href="index.html#media">미디어</a></li>
+      <li><a href="index.html#worship">예배 안내</a></li>
       <li><a href="index.html#location">오시는 길</a></li>
     </ul>
     <a href="https://www.youtube.com/@happy1ch" target="_blank" rel="noopener" class="nav-yt" aria-label="유튜브 채널">
@@ -280,11 +298,13 @@
   <!-- ABOUT CONTENT -->
   <section>
     <div class="section-inner">
-      <div class="about-grid">
-        <div class="about-image">
-          <img src="images/church_about.jpg" alt="행복한교회 설립 감사 예배" />
+      
+      <!-- Row 1: Church Start -->
+      <div class="feature-row">
+        <div class="feature-image">
+          <img src="images/gallery/001.jpg" alt="행복한교회 설립의 감격" />
         </div>
-        <div class="about-text">
+        <div class="feature-text">
           <h3>행복한교회의 시작</h3>
           <p>
             행복한교회는 2017년 12월, 경북 문경 땅에 하나님의 나라를 확장하고 
@@ -295,61 +315,81 @@
             지금도 오직 복음의 능력으로 한 영혼 한 영혼을 귀하게 여기며 
             예수 그리스도의 사랑을 전하고 있습니다.
           </p>
-          
-          <h3 style="margin-top:40px;">지역과 함께하는 7년의 섬김</h3>
+        </div>
+      </div>
+
+      <!-- Row 2: 7 Years Service -->
+      <div class="feature-row reverse">
+        <div class="feature-image">
+          <img src="images/gallery/002.png" alt="문경 시장 섬김 사역" />
+        </div>
+        <div class="feature-text">
+          <h3>7년의 한결같은 섬김</h3>
           <p>
             신흥시장 장터에 위치한 행복한교회는 시장 상인분들과 7년째 따뜻한 정을 나누고 있습니다. 
-            무더운 여름에는 시원한 보리차로, 추운 겨울에는 따뜻한 차 한 잔으로 이웃의 곁을 지켜왔습니다.
           </p>
+          <p>
+            무더운 여름에는 시원한 보리차로, 추운 겨울에는 따뜻한 차 한 잔으로 이웃의 곁을 지켜왔습니다. 
+            우리 교회의 문턱은 낮고 사랑의 온도는 항상 따뜻합니다.
+          </p>
+        </div>
+      </div>
 
+      <!-- Row 3: Nursing Home -->
+      <div class="feature-row">
+        <div class="feature-image">
+          <img src="images/gallery/KakaoTalk_20250423_143408258.jpg" alt="요양원 사역 현장" />
+        </div>
+        <div class="feature-text">
           <h3>사랑을 나누는 요양원 사역</h3>
           <p>
             매주 '우리 보금자리'와 '에덴요양원' 등 노인 요양시설을 방문하여 
             어르신들을 섬기며 예수님의 사랑을 전하는 귀한 사역을 이어가고 있습니다.
           </p>
+          <p>
+            육신의 연약함 속에 계신 어르신들이 찬양과 기도를 통해 
+            주님의 참된 평안과 소망을 경험하시기를 기도하며 정성으로 섬깁니다.
+          </p>
         </div>
       </div>
 
-      <!-- NEW SECTION: UNITY & MISSIONS -->
-      <div style="margin-top:80px; background: var(--white); padding: 48px; border-radius: var(--radius); box-shadow: 0 16px 40px rgba(0,0,0,0.05);">
-        <h3 style="font-family: 'Noto Serif KR', serif; font-size: 1.8rem; color: var(--navy); margin-bottom: 24px; text-align:center;">연합하며 전도하는 교회</h3>
-        <p style="text-align:center; margin-bottom:40px; color:var(--gray);">
-          행복한교회는 지역을 넘어 여러 교회와 연합하여 문경의 복음화를 위해 힘쓰고 있습니다. 
-          그 결과 성도들은 여러 교회를 통해 교회를 바라보는 넓은 시선을 가지게 되었습니다.
+      <!-- CONCLUDING IMAGE -->
+      <div style="margin-top:40px; text-align:center;">
+        <div class="feature-image" style="max-width:900px; margin:0 auto;">
+          <img src="images/church_about.jpg" alt="행복한교회 전경" />
+        </div>
+        <p style="margin-top:20px; color:var(--gray); font-style:italic;">예수 그리스도로 행복을 경험하는 행복한교회입니다.</p>
+      </div>
+
+      <!-- UNITY SECTION -->
+      <div class="unity-box">
+        <h3 style="font-family: 'Noto Serif KR', serif; font-size: 2rem; color: var(--navy); text-align:center;">연합하며 전도하는 교회</h3>
+        <p style="text-align:center; margin-top:15px; color:var(--gray);">
+          행복한교회는 지역을 넘어 여러 교회와 연합하여 문경의 복음화를 위해 힘쓰고 있습니다.
         </p>
 
-        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:24px;">
-          <div style="padding:24px; background:var(--light); border-radius:12px; text-align:center;">
-            <h4 style="color:var(--teal); margin-bottom:12px;">여름 전도 연합</h4>
-            <p style="font-size:0.95rem; color:var(--text); line-height:1.6;">
-              분당우리교회 청년회<br>
-              수지 더사랑의교회<br>
-              평택 늘사랑교회팀<br>
-              서울 신광교회<br>
-              부산 은항교회팀
-            </p>
-            <p style="margin-top:12px; font-size:0.85rem; color:var(--gray);">2018년부터 매년 여름 전도 사역</p>
-          </div>
-          <div style="padding:24px; background:var(--light); border-radius:12px; text-align:center;">
-            <h4 style="color:var(--teal); margin-bottom:12px;">10회 이상의 교회 연합</h4>
-            <p style="font-size:0.95rem; color:var(--text); line-height:1.6;">
-              지역과 교파를 넘어<br>
-              다양한 교회들과 함께하며<br>
-              하나님 나라의 풍성함을<br>
-              경험하고 있습니다.
+        <div class="unity-grid">
+          <div class="unity-card">
+            <h4>여름 전도 연합</h4>
+            <p style="font-size:0.95rem; line-height:1.8;">
+              분당우리교회 청년회, 수지 더사랑의교회, 평택 늘사랑교회팀, 서울 신광교회, 부산 은항교회팀 등과 함께합니다.
             </p>
           </div>
-          <div style="padding:24px; background:var(--light); border-radius:12px; text-align:center;">
-            <h4 style="color:var(--teal); margin-bottom:12px;">이웃 섬김</h4>
-            <p style="font-size:0.95rem; color:var(--text); line-height:1.6;">
-              시장 상인 차(茶) 섬김<br>
-              우리 보금자리 사역<br>
-              에덴요양원 사역<br>
-              매주 지속되는 사랑의 실천
+          <div class="unity-card">
+            <h4>다양한 교회 연합</h4>
+            <p style="font-size:0.95rem; line-height:1.8;">
+              10회 이상의 교회 연합 사역을 통해 지역과 교파를 넘어 하나님 나라의 풍성함을 경험하고 있습니다.
+            </p>
+          </div>
+          <div class="unity-card">
+            <h4>이웃 섬김의 실천</h4>
+            <p style="font-size:0.95rem; line-height:1.8;">
+              시장 상인 차(茶) 섬김, 우리 보금자리 및 에덴요양원 사역을 매주 지속하며 사랑을 실천합니다.
             </p>
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
