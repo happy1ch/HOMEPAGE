@@ -645,16 +645,15 @@
 
 <body>
 
-  <!-- RE-TRIGGER DEPLOY -->
   <!-- NAV -->
   <nav>
     <a href="#hero" class="nav-logo">행복한교회</a>
     <ul class="nav-links">
-      <li><a href="#worship">예배 안내</a></li>
-      <li><a href="about.html">교회 소개</a></li>
+      <li><a href="#media">유튜브</a></li>
+      <li><a href="#about">교회 소개</a></li>
       <li><a href="pastor.html">담임목사 소개</a></li>
-      <li><a href="gallery.html">갤러리</a></li>
-      <li><a href="#media">미디어</a></li>
+      <li><a href="#gallery">갤러리</a></li>
+      <li><a href="#worship">예배 안내</a></li>
       <li><a href="#location">오시는 길</a></li>
     </ul>
     <a href="https://www.youtube.com/@happy1ch" target="_blank" rel="noopener" class="nav-yt" aria-label="유튜브 채널">
@@ -685,8 +684,117 @@
     </div>
   </section>
 
+  <!-- YOUTUBE / MEDIA -->
+  <section id="media">
+    <div class="inner">
+      <div>
+        <div class="section-tag" id="media-tag">미디어</div>
+        <h2 class="section-title" id="media-title">유튜브로<br>말씀을 들어요</h2>
+        <p class="section-sub" id="media-sub">예배 영상, 설교, 교회 소식을 유튜브 채널에서 만나보세요.</p>
+        <a href="https://www.youtube.com/@happy1ch" target="_blank" rel="noopener" class="yt-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>
+          채널 구독하기
+        </a>
+      </div>
+
+      <div style="position:relative;">
+        <div id="live-badge" style="display:none; position:absolute; top:-16px; right:0; background:#FF0000; color:#fff; font-size:0.78rem; font-weight:700; letter-spacing:0.08em; padding:5px 14px; border-radius:999px; align-items:center; gap:6px; z-index:10;">
+          <span style="width:8px;height:8px;background:#fff;border-radius:50%;display:inline-block;animation:livepulse 1s infinite;"></span>
+          LIVE
+        </div>
+        <div class="yt-embed">
+          <iframe
+            id="sermon-iframe"
+            src="https://www.youtube.com/embed/moN7B7A14cI?rel=0&modestbranding=1"
+            title="행복한교회 예배 영상"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="inner">
+      <div class="about-text">
+        <div class="section-tag">교회 소개</div>
+        <h2 class="section-title">행복을<br>나누는 교회</h2>
+        <p style="color:var(--teal); font-weight:700; margin-bottom:10px;">대한예수교장로회(고신)</p>
+        <blockquote>
+          "날마다 예수 그리스도로<br>행복을 경험하는 교회"
+        </blockquote>
+        <div class="values">
+          <div class="value-item">
+            <div class="value-dot"></div>
+            <p>예수 그리스도 안에서 참된 행복을 발견하고 나누는 공동체입니다.</p>
+          </div>
+          <div class="value-item">
+            <div class="value-dot"></div>
+            <p>경북 문경 지역에서 이웃과 함께하며 지역 사회를 섬기고 있습니다.</p>
+          </div>
+          <div class="value-item">
+            <div class="value-dot"></div>
+            <p>처음 교회를 방문하시는 분도 편안하게 믿음을 시작할 수 있도록 돕습니다.</p>
+          </div>
+        </div>
+        <div style="margin-top: 32px;">
+          <a href="about.html" class="btn-primary" style="background: var(--navy); color: var(--white); box-shadow: none;">자세히 보기</a>
+        </div>
+      </div>
+
+      <div class="about-image">
+        <img src="images/church_sign.png" alt="행복한교회 간판" style="margin-bottom:20px; box-shadow:none; aspect-ratio:auto;"/>
+        <img src="images/entrance.jpg" alt="행복한교회 입구" style="margin-bottom:20px; border-radius:var(--radius); box-shadow:0 8px 24px rgba(0,0,0,0.12);">
+        <div class="badge-float">
+          경북 문경<br>행복한교회 2F
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY PREVIEW -->
+  <section id="gallery" style="background: var(--light);">
+    <div class="inner" style="max-width: 1100px; margin: 0 auto;">
+      <header style="margin-bottom: 48px;">
+        <div class="section-tag">갤러리</div>
+        <h2 class="section-title">함께하는 기쁨</h2>
+        <p class="section-sub">행복한교회의 소중한 추억들을 나눕니다.</p>
+      </header>
+      
+      <div class="worship-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+        <div class="worship-card" style="padding: 0; overflow: hidden;">
+          <img src="images/gallery/market.png" alt="시장 상인 섬김" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+          <div style="padding: 24px;">
+            <h3 style="font-size:1.3rem; margin-bottom:12px;">시장 상인 섬김</h3>
+            <p style="font-size:1rem; color:var(--gray); line-height:1.6;">7년 동안 한결같이 시장 상인분들에게 사랑을 전해왔습니다.</p>
+          </div>
+        </div>
+        <div class="worship-card" style="padding: 0; overflow: hidden;">
+          <img src="images/gallery/mission.png" alt="연합과 선교" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+          <div style="padding: 24px;">
+            <h3 style="font-size:1.3rem; margin-bottom:12px;">연합과 선교</h3>
+            <p style="font-size:1rem; color:var(--gray); line-height:1.6;">함께 복음을 전했던 뜨거운 현장입니다.</p>
+          </div>
+        </div>
+        <div class="worship-card" style="padding: 0; overflow: hidden;">
+          <img src="images/gallery/nursing.png" alt="요양원 사역" style="width:100%; aspect-ratio:4/3; object-fit:cover; display:block;">
+          <div style="padding: 24px;">
+            <h3 style="font-size:1.3rem; margin-bottom:12px;">사랑의 실천</h3>
+            <p style="font-size:1rem; color:var(--gray); line-height:1.6;">어르신들을 섬기며 주님의 사랑을 나누는 시간입니다.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 56px;">
+        <a href="gallery.html" class="btn-outline" style="color: var(--navy); border-color: var(--navy); display: inline-block;">갤러리 더보기</a>
+      </div>
+    </div>
+  </section>
+
   <!-- WORSHIP -->
-  <section id="worship">
+  <section id="worship" style="background: var(--white);">
     <div class="inner">
       <header>
         <div class="section-tag">예배 안내</div>
@@ -742,75 +850,8 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="inner">
-      <div class="about-text">
-        <div class="section-tag">교회 소개</div>
-        <h2 class="section-title">행복을<br>나누는 교회</h2>
-        <p style="color:var(--teal); font-weight:700; margin-bottom:10px;">대한예수교장로회(고신)</p>
-        <blockquote>
-          "날마다 예수 그리스도로<br>행복을 경험하는 교회"
-        </blockquote>
-        <div class="values">
-          <div class="value-item">
-            <div class="value-dot"></div>
-            <p>예수 그리스도 안에서 참된 행복을 발견하고 나누는 공동체입니다.</p>
-          </div>
-          <div class="value-item">
-            <div class="value-dot"></div>
-            <p>경북 문경 지역에서 이웃과 함께하며 지역 사회를 섬기고 있습니다.</p>
-          </div>
-          <div class="value-item">
-            <div class="value-dot"></div>
-            <p>처음 교회를 방문하시는 분도 편안하게 믿음을 시작할 수 있도록 돕습니다.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="about-image">
-        <img src="images/church_sign.png" alt="행복한교회 간판" style="margin-bottom:20px; box-shadow:none; aspect-ratio:auto;"/>
-        <img src="images/entrance.jpg" alt="행복한교회 입구" style="margin-bottom:20px; border-radius:var(--radius); box-shadow:0 8px 24px rgba(0,0,0,0.12);">
-        <div class="badge-float">
-          경북 문경<br>행복한교회 2F
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- YOUTUBE / MEDIA -->
-  <section id="media">
-    <div class="inner">
-      <div>
-        <div class="section-tag" id="media-tag">미디어</div>
-        <h2 class="section-title" id="media-title">유튜브로<br>말씀을 들어요</h2>
-        <p class="section-sub" id="media-sub">예배 영상, 설교, 교회 소식을 유튜브 채널에서 만나보세요.</p>
-        <a href="https://www.youtube.com/@happy1ch" target="_blank" rel="noopener" class="yt-link">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>
-          채널 구독하기
-        </a>
-      </div>
-
-      <div style="position:relative;">
-        <div id="live-badge" style="display:none; position:absolute; top:-16px; right:0; background:#FF0000; color:#fff; font-size:0.78rem; font-weight:700; letter-spacing:0.08em; padding:5px 14px; border-radius:999px; align-items:center; gap:6px; z-index:10;">
-          <span style="width:8px;height:8px;background:#fff;border-radius:50%;display:inline-block;animation:livepulse 1s infinite;"></span>
-          LIVE
-        </div>
-        <div class="yt-embed">
-          <iframe
-            id="sermon-iframe"
-            src="https://www.youtube.com/embed/moN7B7A14cI?rel=0&modestbranding=1"
-            title="행복한교회 예배 영상"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- LOCATION -->
-  <section id="location">
+  <section id="location" style="background: var(--light);">
     <div class="inner">
       <header>
         <div class="section-tag">오시는 길</div>
@@ -860,7 +901,6 @@
             referrerpolicy="no-referrer-when-downgrade"
             style="height:480px; border-radius:var(--radius);">
           </iframe>
-
         </div>
       </div>
     </div>
