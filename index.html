@@ -18,40 +18,6 @@
   <meta property="og:url" content="https://muz.so/happy1ch" />
   <meta property="og:locale" content="ko_KR" />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="행복한교회 | 경북 문경" />
-  <meta name="twitter:description" content="날마다 예수 그리스도로 행복을 경험하는 교회" />
-  <meta name="twitter:image" content="images/og-image.jpg" />
-
-  <!-- JSON-LD: LocalBusiness -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Church",
-    "name": "행복한교회",
-    "alternateName": "Happy Church",
-    "description": "날마다 예수 그리스도로 행복을 경험하는 교회",
-    "url": "https://muz.so/happy1ch",
-    "telephone": "010-9819-5199",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "신흥시장길 23-4, 2층",
-      "addressLocality": "문경시",
-      "addressRegion": "경북",
-      "postalCode": "36930",
-      "addressCountry": "KR"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 36.5934,
-      "longitude": 128.1912
-    },
-    "openingHours": ["Su 11:00-12:00", "Su 13:30-14:30", "We 19:30-20:30"],
-    "sameAs": ["https://www.youtube.com/@happy1ch"]
-  }
-  </script>
-
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -147,8 +113,8 @@
     #hero .bg-overlay {
       position: absolute;
       inset: 0;
-      background: url('images/gallery/20250710_104904.jpg') center/cover no-repeat;
-      opacity: 0.45; /* 가독성을 위해 살짝 어둡게 처리 */
+      background: url('images/gallery/fellowship.png') center/cover no-repeat;
+      opacity: 0.45;
     }
 
     .hero-inner {
@@ -162,11 +128,7 @@
       align-items: center;
     }
 
-    .hero-text {
-      color: var(--white);
-      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-    }
-
+    .hero-text { color: var(--white); text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
     .hero-badge {
       display: inline-block;
       background: var(--gold);
@@ -177,7 +139,6 @@
       padding: 6px 18px;
       border-radius: 999px;
       margin-bottom: 24px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 
     .hero-text h1 {
@@ -191,18 +152,12 @@
 
     .hero-text .tagline {
       font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-      color: #fff;
       font-weight: 400;
       margin-bottom: 40px;
       line-height: 1.8;
     }
 
-    .hero-buttons {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
+    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
     .btn-primary {
       background: var(--gold);
       color: var(--navy);
@@ -211,10 +166,10 @@
       font-weight: 700;
       font-size: 0.95rem;
       text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.4); }
+    .btn-primary:hover { transform: translateY(-2px); }
 
     .btn-outline {
       background: rgba(255,255,255,0.1);
@@ -222,17 +177,9 @@
       padding: 14px 32px;
       border-radius: 999px;
       font-weight: 500;
-      font-size: 0.95rem;
-      text-decoration: none;
       border: 2px solid rgba(255,255,255,0.8);
+      text-decoration: none;
       backdrop-filter: blur(4px);
-      transition: background 0.2s;
-    }
-    .btn-outline:hover { background: rgba(255,255,255,0.2); }
-
-    /* Video Player Area */
-    .hero-media {
-      position: relative;
     }
 
     .yt-container {
@@ -244,56 +191,20 @@
       overflow: hidden;
       box-shadow: 0 30px 80px rgba(0,0,0,0.6);
     }
-
-    .yt-container iframe {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      border: none;
-    }
-
-    .media-info {
-      margin-top: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: var(--white);
-    }
-
-    .live-indicator {
-      display: none;
-      align-items: center;
-      gap: 8px;
-      background: #FF0000;
-      padding: 4px 12px;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: 700;
-    }
-    .live-dot {
-      width: 8px; height: 8px; background: #fff; border-radius: 50%;
-      animation: livepulse 1s infinite;
-    }
-
-    @keyframes livepulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(1.3); }
-    }
+    .yt-container iframe { position: absolute; top:0; left:0; width:100%; height:100%; border:none; }
 
     /* ── SECTIONS ── */
     section { padding: 100px 5%; }
-
     .section-tag {
       display: inline-block;
       color: var(--teal);
       font-size: 1.1rem;
       font-weight: 800;
       letter-spacing: 0.15em;
-      text-transform: uppercase;
       margin-bottom: 16px;
       border-bottom: 3px solid var(--gold);
       padding-bottom: 4px;
     }
-
     .section-title {
       font-family: 'Noto Serif KR', serif;
       font-size: clamp(2.5rem, 6vw, 3.5rem);
@@ -303,14 +214,7 @@
       margin-bottom: 24px;
     }
 
-    .section-sub {
-      font-size: 1.15rem;
-      color: var(--gray);
-      max-width: 600px;
-      line-height: 1.8;
-    }
-
-    /* ── ABOUT PREVIEW ── */
+    /* ── ABOUT PREVIEW (Updated with 4 Ministries) ── */
     #about { background: var(--white); }
     .about-inner {
       max-width: 1200px;
@@ -337,6 +241,23 @@
       box-shadow: 0 10px 30px rgba(212,168,67,0.3);
     }
 
+    .ministry-list {
+      list-style: none;
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .ministry-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--navy);
+    }
+    .ministry-dot { width: 10px; height: 10px; background: var(--teal); border-radius: 50%; }
+
     /* ── GALLERY PREVIEW ── */
     #gallery { background: var(--light); }
     .gallery-grid {
@@ -357,7 +278,6 @@
     .gallery-card-body { padding: 24px; }
 
     /* ── WORSHIP ── */
-    #worship { background: var(--white); }
     .worship-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -370,54 +290,22 @@
       border-radius: var(--radius);
       border-left: 5px solid var(--teal);
     }
-    .worship-card h3 { color: var(--navy); margin-bottom: 15px; }
     .worship-time { font-size: 1.4rem; font-weight: 700; color: var(--teal); }
 
-    /* ── LOCATION ── */
-    #location { background: var(--light); }
-    .location-container {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 50px;
-      margin-top: 50px;
-    }
-    .map-frame {
-      width: 100%;
-      height: 450px;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-
     /* ── FOOTER ── */
-    footer {
-      background: #07192A;
-      color: rgba(255,255,255,0.6);
-      padding: 60px 5%;
-    }
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 40px;
-    }
+    footer { background: #07192A; color: rgba(255,255,255,0.6); padding: 60px 5%; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
     .footer-brand { font-family: 'Noto Serif KR', serif; color: #fff; font-size: 1.2rem; font-weight: 700; }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
       .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 40px; }
-      .hero-buttons { justify-content: center; }
       .about-inner { grid-template-columns: 1fr; }
-      .location-container { grid-template-columns: 1fr; }
+      .ministry-list { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body>
-
-  <!-- NAV -->
   <nav>
     <a href="#hero" class="nav-logo">행복한교회</a>
     <ul class="nav-links">
@@ -434,7 +322,6 @@
     </a>
   </nav>
 
-  <!-- HERO (Main Background Changed to Fellowship Photo) -->
   <section id="hero">
     <div class="bg-overlay"></div>
     <div class="hero-inner">
@@ -446,192 +333,86 @@
           행복을 경험하는 교회
         </p>
         <div class="hero-buttons">
-          <a href="about.html" class="btn-primary">교회 소개 보기</a>
+          <a href="about.html" class="btn-primary">교회 스토리 보기</a>
           <a href="#worship" class="btn-outline">예배 시간 안내</a>
         </div>
       </div>
-
       <div class="hero-media">
-        <div id="live-badge" class="live-indicator" style="position:absolute; top:-20px; right:0; z-index:5;">
-          <span class="live-dot"></span>
-          LIVE 중계 중
-        </div>
         <div class="yt-container">
-          <iframe
-            id="sermon-iframe"
-            src="https://www.youtube.com/embed/moN7B7A14cI?rel=0&modestbranding=1"
-            title="행복한교회 최신 영상"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
-        </div>
-        <div class="media-info">
-          <span style="font-size:0.9rem; opacity:0.8;">최신 설교 및 예배 영상</span>
-          <a href="https://www.youtube.com/@happy1ch" target="_blank" rel="noopener" style="color:var(--gold); text-decoration:none; font-size:0.9rem; font-weight:700;">전체 영상 보기 →</a>
+          <iframe id="sermon-iframe" src="https://www.youtube.com/embed/moN7B7A14cI?rel=0&modestbranding=1" title="행복한교회 최신 영상" allowfullscreen></iframe>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT PREVIEW -->
   <section id="about">
     <div class="about-inner">
       <div class="about-image">
-        <img src="images/gallery/001.jpg" alt="행복한교회 설립의 감격" />
+        <!-- Photo replaced from entrance.jpg to congregation group photo -->
+        <img src="images/church_about.jpg" alt="행복한교회 공동체" />
         <div class="about-badge">Since 2017<br>행복한교회</div>
       </div>
       <div class="about-text">
         <div class="section-tag">교회 소개</div>
         <h2 class="section-title">행복을 나누는<br>믿음의 공동체</h2>
         <p class="section-sub">
-          예수 그리스도의 사랑 안에서 참된 행복을 발견하고,<br>
-          그 기쁨을 문경 지역 사회와 함께 나누는 교회입니다.
+          2017년 12월 10일, '우리 보금자리 요양원'에서 첫 예배로 시작된 행복한교회는 
+          예수 그리스도의 사랑을 지역 사회와 함께 나누는 건강한 공동체입니다.
         </p>
-        <div style="margin-top: 30px;">
-          <a href="about.html" style="color:var(--navy); font-weight:700; text-decoration:none; border-bottom:2px solid var(--gold);">교회 스토리 보기 →</a>
+        
+        <ul class="ministry-list">
+          <li class="ministry-item"><div class="ministry-dot"></div> 요양원 섬김 사역</li>
+          <li class="ministry-item"><div class="ministry-dot"></div> 장터 물전도 사역</li>
+          <li class="ministry-item"><div class="ministry-dot"></div> 복음 전도 사역</li>
+          <li class="ministry-item"><div class="ministry-dot"></div> 교회 연합 사역</li>
+        </ul>
+
+        <div style="margin-top: 40px;">
+          <a href="about.html" style="color:var(--navy); font-weight:700; text-decoration:none; border-bottom:2px solid var(--gold);">교회 자세히 보기 →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- GALLERY PREVIEW -->
   <section id="gallery">
     <div style="max-width:1200px; margin:0 auto;">
       <div class="section-tag">갤러리</div>
       <h2 class="section-title">함께하는 기쁨</h2>
-      <p class="section-sub">행복한교회의 소중한 사역과 추억의 현장입니다.</p>
-      
       <div class="gallery-grid">
-        <div class="gallery-card">
-          <img src="images/gallery/002.png" alt="시장 전도 사역" />
-          <div class="gallery-card-body">
-            <h3 style="color:var(--navy); font-size:1.3rem; margin-bottom:8px;">이웃과 함께하는 기쁨</h3>
-            <p style="color:var(--gray); font-size:0.95rem;">문경 시장 상인들과 나누는 정겨운 시간입니다.</p>
-          </div>
-        </div>
-        <div class="gallery-card">
-          <img src="images/gallery/KakaoTalk_20250423_143408258.jpg" alt="요양원 사역" />
-          <div class="gallery-card-body">
-            <h3 style="color:var(--navy); font-size:1.3rem; margin-bottom:8px;">우리 보금자리 요양원</h3>
-            <p style="color:var(--gray); font-size:0.95rem;">어르신들을 섬기며 주님의 사랑을 나눕니다.</p>
-          </div>
-        </div>
-        <div class="gallery-card">
-          <img src="images/gallery/20250423_143254.jpg" alt="에덴요양원 사역" />
-          <div class="gallery-card-body">
-            <h3 style="color:var(--navy); font-size:1.3rem; margin-bottom:8px;">에덴요양원 사역</h3>
-            <p style="color:var(--gray); font-size:0.95rem;">복음의 기쁨을 나누는 소중한 현장입니다.</p>
-          </div>
-        </div>
+        <div class="gallery-card"><img src="images/gallery/002.png" alt="시장 전도" /><div class="gallery-card-body"><h3>장터 섬김</h3><p>문경 시장 상인들과 나누는 정겨운 시간입니다.</p></div></div>
+        <div class="gallery-card"><img src="images/gallery/KakaoTalk_20250423_143408258.jpg" alt="요양원 사역" /><div class="gallery-card-body"><h3>요양원 예배</h3><p>어르신들과 함께 주님의 사랑을 나눕니다.</p></div></div>
+        <div class="gallery-card"><img src="images/gallery/001.jpg" alt="설립" /><div class="gallery-card-body"><h3>설립의 감격</h3><p>첫 예배의 뜨거운 은혜를 기억합니다.</p></div></div>
       </div>
-      
-      <div style="text-align:center; margin-top:50px;">
-        <a href="gallery.html" class="btn-outline" style="color:var(--navy); border-color:var(--navy);">갤러리 전체보기</a>
-      </div>
+      <div style="text-align:center; margin-top:50px;"><a href="gallery.html" class="btn-outline" style="color:var(--navy); border-color:var(--navy);">갤러리 전체보기</a></div>
     </div>
   </section>
 
-  <!-- WORSHIP -->
   <section id="worship">
     <div style="max-width:1200px; margin:0 auto;">
       <div class="section-tag">예배 안내</div>
       <h2 class="section-title">함께 예배드려요</h2>
       <div class="worship-grid">
-        <div class="worship-card">
-          <h3>주일 오전 예배</h3>
-          <div class="worship-time">오전 11:00</div>
-        </div>
-        <div class="worship-card">
-          <h3>주일 오후 예배</h3>
-          <div class="worship-time">오후 1:30</div>
-        </div>
-        <div class="worship-card">
-          <h3>수요 예배</h3>
-          <div class="worship-time">오후 7:30</div>
-        </div>
-        <div class="worship-card">
-          <h3>새벽 기도회</h3>
-          <div class="worship-time">매일 5:30</div>
-        </div>
+        <div class="worship-card"><h3>주일 오전 예배</h3><div class="worship-time">오전 11:00</div></div>
+        <div class="worship-card"><h3>주일 오후 예배</h3><div class="worship-time">오후 1:30</div></div>
+        <div class="worship-card"><h3>수요 예배</h3><div class="worship-time">오후 7:30</div></div>
+        <div class="worship-card"><h3>새벽 기도회</h3><div class="worship-time">매일 5:30</div></div>
       </div>
     </div>
   </section>
 
-  <!-- LOCATION -->
   <section id="location">
     <div style="max-width:1200px; margin:0 auto;">
       <div class="section-tag">오시는 길</div>
-      <h2 class="section-title">행복한교회 위치</h2>
-      <div class="location-container">
-        <div>
-          <p style="font-size:1.2rem; font-weight:700; color:var(--navy); margin-bottom:10px;">주소</p>
-          <p style="margin-bottom:30px;">경북 문경시 신흥시장길 23-4, 2층</p>
-          <p style="font-size:1.2rem; font-weight:700; color:var(--navy); margin-bottom:10px;">전화</p>
-          <p>054-554-6004<br>010-9819-5199</p>
-        </div>
-        <div class="map-frame">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3203.058117327233!2d128.2037851!3d36.6009093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x356445f41ab59b9f%3A0x9979fd5e5bfb56!2z66y46rK9IO2Wieuzte2VnOq1kO2ajA!5e0!3m2!1sko!2skr!4v1778333195679!5m2!1sko!2skr"
-            allowfullscreen loading="lazy">
-          </iframe>
-        </div>
-      </div>
+      <h2 class="section-title">위치 안내</h2>
+      <p>경북 문경시 신흥시장길 23-4, 2층</p>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <div>
-        <div class="footer-brand">행복한교회</div>
-        <p style="margin-top:10px; font-size:0.9rem;">대한예수교장로회(고신)</p>
-        <p style="margin-top:20px; font-size:0.85rem;">경북 문경시 신흥시장길 23-4, 2층</p>
-      </div>
-      <div style="text-align:right;">
-        <p>© 2025 행복한교회. All rights reserved.</p>
-        <a href="https://www.youtube.com/@happy1ch" target="_blank" rel="noopener" style="color:var(--gold); font-size:0.85rem; text-decoration:none;">YouTube @happy1ch</a>
-      </div>
+      <div><div class="footer-brand">행복한교회</div><p>© 2025 행복한교회. All rights reserved.</p></div>
+      <div style="text-align:right;"><a href="https://www.youtube.com/@happy1ch" target="_blank" rel="noopener" style="color:var(--gold); text-decoration:none;">YouTube @happy1ch</a></div>
     </div>
   </footer>
-
-  <script>
-    (function () {
-      const CHANNEL_ID = 'UC2seq9scvYNM-_Inf3AFmag';
-      const services = [
-        { day: 0, h: 11, m:  0, dur: 90, name: '주일 오전 예배' },
-        { day: 0, h: 13, m: 30, dur: 90, name: '주일 오후 예배' },
-        { day: 3, h: 19, m: 30, dur: 90, name: '수요 예배' },
-        { day: 1, h:  5, m: 30, dur: 60, name: '새벽 기도회' },
-        { day: 2, h:  5, m: 30, dur: 60, name: '새벽 기도회' },
-        { day: 3, h:  5, m: 30, dur: 60, name: '새벽 기도회' },
-        { day: 4, h:  5, m: 30, dur: 60, name: '새벽 기도회' },
-        { day: 5, h:  5, m: 30, dur: 60, name: '새벽 기도회' },
-        { day: 6, h:  5, m: 30, dur: 60, name: '새벽 기도회' },
-      ];
-
-      function getLiveService() {
-        const kst = new Date(Date.now() + 9 * 3600 * 1000);
-        const day = kst.getUTCDay();
-        const cur = kst.getUTCHours() * 60 + kst.getUTCMinutes();
-        return services.find(s => {
-          if (s.day !== day) return false;
-          const start = s.h * 60 + s.m;
-          return cur >= start && cur < start + s.dur;
-        });
-      }
-
-      function update() {
-        const iframe = document.getElementById('sermon-iframe');
-        const badge  = document.getElementById('live-badge');
-        const live   = getLiveService();
-
-        if (live) {
-          iframe.src = 'https://www.youtube.com/embed/live_stream?channel=' + CHANNEL_ID + '&rel=0&modestbranding=1';
-          badge.style.display = 'flex';
-        }
-      }
-      document.addEventListener('DOMContentLoaded', update);
-    })();
-  </script>
 </body>
 </html>
