@@ -46,7 +46,7 @@
       justify-content: space-between;
       padding: 0 5%;
       height: 64px;
-      background: rgba(22, 45, 110, 0.92);
+      background: rgba(22, 45, 110, 0.95);
       backdrop-filter: blur(8px);
     }
 
@@ -147,13 +147,14 @@
     }
 
     .gallery-info h3 {
-      font-size: 1.6rem; /* 1.2rem에서 상향 */
+      font-size: 1.4rem;
       color: var(--navy);
       margin-bottom: 12px;
+      font-weight: 700;
     }
 
     .gallery-info p {
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: var(--gray);
       line-height: 1.5;
     }
@@ -192,11 +193,11 @@
   <nav>
     <a href="index.html" class="nav-logo">행복한교회</a>
     <ul class="nav-links">
-      <li><a href="index.html#worship">예배 안내</a></li>
+      <li><a href="index.html#hero">유튜브</a></li>
       <li><a href="about.html">교회 소개</a></li>
       <li><a href="pastor.html">담임목사 소개</a></li>
       <li><a href="gallery.html" class="active">갤러리</a></li>
-      <li><a href="index.html#media">미디어</a></li>
+      <li><a href="index.html#worship">예배 안내</a></li>
       <li><a href="index.html#location">오시는 길</a></li>
     </ul>
     <a href="https://www.youtube.com/@happy1ch" target="_blank" rel="noopener" class="nav-yt" aria-label="유튜브 채널">
@@ -216,7 +217,92 @@
     <div class="gallery-inner">
       <div class="gallery-grid">
         
-        <!-- Item 1: Founding -->
+        <!-- NEW: Happy Photo Exhibition -->
+        <div class="gallery-item">
+          <div class="gallery-img-wrapper">
+            <img src="images/gallery/001.jpg" alt="행복한 사진전" />
+          </div>
+          <div class="gallery-info">
+            <h3>행복한 사진전</h3>
+            <p>2019년 7월 27일, 성도들과 함께 주님 안에서 누리는 행복을 사진에 담았습니다.</p>
+          </div>
+        </div>
+
+        <!-- NEW: Market Service Collage -->
+        <div class="gallery-item">
+          <div class="gallery-img-wrapper">
+            <img src="images/gallery/002.png" alt="문경 시장 전도 사역" />
+          </div>
+          <div class="gallery-info">
+            <h3>이웃과 함께하는 기쁨</h3>
+            <p>문경 시장 상인분들과 따뜻한 정을 나누며 복음을 전하는 행복한 현장입니다.</p>
+          </div>
+        </div>
+
+        <!-- NEW: Tea Service -->
+        <div class="gallery-item">
+          <div class="gallery-img-wrapper">
+            <img src="images/gallery/DSC06666.jpg" alt="시장 차 섬김 사역" />
+          </div>
+          <div class="gallery-info">
+            <h3>사랑의 차 한 잔</h3>
+            <p>7년 동안 한결같이 이웃의 곁을 지키며 예수님의 사랑을 차 한 잔에 담아 전합니다.</p>
+          </div>
+        </div>
+
+        <!-- NEW: Nursing Home Worship -->
+        <div class="gallery-item">
+          <div class="gallery-img-wrapper">
+            <img src="images/gallery/KakaoTalk_20250423_143408258.jpg" alt="요양원 예배 섬김" />
+          </div>
+          <div class="gallery-info">
+            <h3>요양원 예배 사역</h3>
+            <p>요양시설 어르신들과 함께 찬양하며 주님의 평강을 나누는 은혜로운 시간입니다.</p>
+          </div>
+        </div>
+
+        <!-- NEW: More Ministry Photos -->
+        <div class="gallery-item">
+          <div class="gallery-img-wrapper">
+            <img src="images/gallery/20250728_185612.jpg" alt="교회 사역 현장" />
+          </div>
+          <div class="gallery-info">
+            <h3>믿음의 여정</h3>
+            <p>날마다 예수 그리스도를 닮아가는 성도들의 소중한 모습들입니다.</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-img-wrapper">
+            <img src="images/gallery/20250710_104904.jpg" alt="성도 교제" />
+          </div>
+          <div class="gallery-info">
+            <h3>성도의 교제</h3>
+            <p>주님 안에서 한 가족 된 성도들이 사랑으로 하나 되는 시간입니다.</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-img-wrapper">
+            <img src="images/gallery/20250423_143254.jpg" alt="예배와 기도" />
+          </div>
+          <div class="gallery-info">
+            <h3>기도의 불꽃</h3>
+            <p>문경 땅의 복음화를 위해 간절히 기도하는 행복한교회 공동체입니다.</p>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="gallery-img-wrapper">
+            <img src="images/gallery/1763174314988.jpg" alt="선교 활동" />
+          </div>
+          <div class="gallery-info">
+            <h3>복음의 증인</h3>
+            <p>세상을 향해 나아가 주님의 사랑을 실천하는 발걸음입니다.</p>
+          </div>
+        </div>
+
+        <!-- EXISTING ITEMS -->
         <div class="gallery-item">
           <div class="gallery-img-wrapper">
             <img src="images/gallery/founding.png" alt="행복한교회 설립 첫 예배" />
@@ -227,7 +313,6 @@
           </div>
         </div>
 
-        <!-- Item 2: Mission Team -->
         <div class="gallery-item">
           <div class="gallery-img-wrapper">
             <img src="images/gallery/mission.png" alt="늘사랑교회 전도팀과 연합" />
@@ -238,7 +323,6 @@
           </div>
         </div>
 
-        <!-- Item 3: Market Service -->
         <div class="gallery-item">
           <div class="gallery-img-wrapper">
             <img src="images/gallery/market.png" alt="시장 상인 차 봉사" />
@@ -249,7 +333,6 @@
           </div>
         </div>
 
-        <!-- Item 4: Nursing Home -->
         <div class="gallery-item">
           <div class="gallery-img-wrapper">
             <img src="images/gallery/nursing.png" alt="요양원 사역" />
@@ -260,7 +343,6 @@
           </div>
         </div>
 
-        <!-- Item 5: Fellowship -->
         <div class="gallery-item">
           <div class="gallery-img-wrapper">
             <img src="images/gallery/fellowship.png" alt="성도 세미나 및 예배" />
@@ -271,7 +353,6 @@
           </div>
         </div>
 
-        <!-- Item 6: Happy Concert -->
         <div class="gallery-item">
           <div class="gallery-img-wrapper">
             <img src="images/gallery/concert.png" alt="행복한 콘서트" />
