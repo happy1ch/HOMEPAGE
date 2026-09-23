@@ -7,6 +7,22 @@
   <title>교회 소개 | 행복한교회</title>
   <meta name="description" content="행복한교회를 소개합니다. 날마다 예수 그리스도로 행복을 경험하는 교회입니다." />
 
+  <!-- Open Graph (카카오톡/SNS 공유 미리보기) -->
+  <link rel="canonical" href="https://happy1ch.github.io/HOMEPAGE/about.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="교회 소개 | 행복한교회" />
+  <meta property="og:description" content="2017년 요양원에서 드린 첫 예배로 시작된 문경 행복한교회의 이야기와 4대 핵심 사역" />
+  <meta property="og:image" content="https://happy1ch.github.io/HOMEPAGE/images/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="행복한교회 - 날마다 예수 그리스도로 행복을 경험하는 교회" />
+  <meta property="og:site_name" content="행복한교회" />
+  <meta property="og:url" content="https://happy1ch.github.io/HOMEPAGE/about.html" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://happy1ch.github.io/HOMEPAGE/images/og-image.jpg" />
+
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -190,28 +206,62 @@
     footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
     footer a:hover { color: var(--gold); }
 
+    @media (max-width: 768px) { footer .inner { flex-direction: column; text-align: center; } footer p[style*="right"] { text-align: center !important; } }
+
     @media (max-width: 968px) {
       .feature-row, .feature-row.reverse { grid-template-columns: 1fr; gap: 40px; }
       .feature-row .feature-text, .feature-row .feature-image { order: unset !important; }
     }
+    /* ── NAV (공통: 메뉴 통일 + 모바일 햄버거) ── */
+    .nav-links { gap: 26px; }
+    .nav-links a.active { color: var(--gold); }
+    .nav-toggle { display: none; width: 44px; height: 44px; background: none; border: 0; cursor: pointer; flex-direction: column; justify-content: center; align-items: center; gap: 5px; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: transform .25s, opacity .25s; }
+    nav.open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    nav.open .nav-toggle span:nth-child(2) { opacity: 0; }
+    nav.open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-logo, .nav-links a, .nav-yt { white-space: nowrap; }
+    .nav-links a { font-size: 0.82rem; letter-spacing: -0.01em; }
+    @media (max-width: 1240px) { .nav-links { gap: 18px; } }
+    [id] { scroll-margin-top: 72px; }
+    @media (max-width: 1080px) {
+      .nav-toggle { display: flex; }
+      .nav-yt { margin-left: auto; margin-right: 6px; }
+      .nav-yt span { display: none; }
+      .nav-links {
+        position: absolute; top: 64px; left: 0; right: 0;
+        flex-direction: column; gap: 0;
+        background: rgba(13, 43, 69, 0.98);
+        padding: 6px 5% 18px;
+        box-shadow: 0 16px 30px rgba(0,0,0,0.25);
+        display: none;
+      }
+      nav.open .nav-links { display: flex; }
+      .nav-links a { display: block; padding: 14px 4px; font-size: 1.05rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    }
+
   </style>
 </head>
 <body>
 
   <nav>
     <a href="index.html" class="nav-logo">행복한교회</a>
-    <ul class="nav-links">
-      <li><a href="index.html#hero">유튜브</a></li>
-      <li><a href="about.html" class="active">교회 소개</a></li>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="about.html" class="active" aria-current="page">교회 소개</a></li>
       <li><a href="pastor.html">담임목사 소개</a></li>
-      <li><a href="gallery.html">갤러리</a></li>
       <li><a href="index.html#worship">예배 안내</a></li>
+      <li><a href="index.html#sermons">최근 설교</a></li>
+      <li><a href="gallery.html">갤러리</a></li>
+      <li><a href="index.html#newcomer">처음 오셨나요?</a></li>
       <li><a href="index.html#location">오시는 길</a></li>
     </ul>
-    <a href="https://www.youtube.com/@happy1ch" target="_blank" rel="noopener" class="nav-yt">
+    <a href="https://www.youtube.com/@happy1ch" target="_blank" rel="noopener" class="nav-yt" aria-label="유튜브 채널">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>
-      유튜브
+      <span>유튜브</span>
     </a>
+    <button type="button" class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <header class="page-header">
@@ -225,7 +275,7 @@
       <!-- Row 1: Story from Notion -->
       <div class="feature-row">
         <div class="feature-image">
-          <img src="images/gallery/001.jpg" alt="설립의 감격" />
+          <img src="images/gallery/001.webp" alt="설립의 감격" loading="lazy" decoding="async" />
         </div>
         <div class="feature-text">
           <h3>행복한교회의 시작</h3>
@@ -243,7 +293,7 @@
       <!-- Row 2: 4 Core Ministries -->
       <div class="feature-row reverse">
         <div class="feature-image">
-          <img src="images/church_about.jpg" alt="행복한교회 사역" />
+          <img src="images/church_about.webp" alt="행복한교회 사역" loading="lazy" decoding="async" />
         </div>
         <div class="feature-text">
           <h3>4대 핵심 사역</h3>
@@ -257,15 +307,15 @@
         </div>
       </div>
 
-      <!-- Row 3: 7 Years -->
+      <!-- Row 3: 2018년부터 이어온 차 섬김 -->
       <div class="feature-row">
         <div class="feature-image">
-          <img src="images/gallery/002.png" alt="시장 섬김" />
+          <img src="images/gallery/002.webp" alt="시장 섬김" loading="lazy" decoding="async" />
         </div>
         <div class="feature-text">
-          <h3>7년의 한결같은 사랑</h3>
+          <h3>한결같은 사랑, 차 한 잔</h3>
           <p>
-            신흥시장 입구에서 7년째 이어온 차(茶) 섬김은 우리 교회의 자랑이자 행복입니다. 
+            2018년부터 신흥시장 입구에서 한결같이 이어온 차(茶) 섬김은 우리 교회의 자랑이자 행복입니다. 
           </p>
           <p>
             여름에는 시원한 보리차로, 겨울에는 따뜻한 차 한 잔으로 상인들과 
@@ -279,10 +329,28 @@
 
   <footer>
     <div class="inner">
-      <div class="brand">행복한교회</div>
-      <p>© <span class="copy-year">2026</span> 행복한교회. All rights reserved.</p>
+      <div>
+        <div class="brand">대한예수교장로회(고신) 행복한교회</div>
+        <p style="margin-top:8px;">
+          경북 문경시 신흥시장길 23-4, 2층<br>
+          전화: <a href="tel:054-554-6004">054-554-6004</a> / <a href="tel:010-9819-5199">010-9819-5199</a>
+        </p>
+      </div>
+      <p style="text-align:right;">
+        <a href="https://www.youtube.com/@happy1ch" target="_blank" rel="noopener">YouTube @happy1ch</a><br>
+        <span style="margin-top:6px; display:block;">© <span class="copy-year">2026</span> 행복한교회. All rights reserved.</span>
+      </p>
     </div>
   </footer>
-  <script>document.querySelectorAll('.copy-year').forEach(function(el){el.textContent=new Date().getFullYear();});</script>
+  <script>
+  (function(){
+    var nav=document.querySelector('nav'), btn=nav.querySelector('.nav-toggle');
+    function setOpen(o){ nav.classList.toggle('open',o); btn.setAttribute('aria-expanded',o); btn.setAttribute('aria-label',o?'메뉴 닫기':'메뉴 열기'); }
+    btn.addEventListener('click',function(){ setOpen(!nav.classList.contains('open')); });
+    nav.querySelectorAll('.nav-links a').forEach(function(a){ a.addEventListener('click',function(){ setOpen(false); }); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape') setOpen(false); });
+  })();
+  document.querySelectorAll('.copy-year').forEach(function(el){el.textContent=new Date().getFullYear();});
+</script>
 </body>
 </html>

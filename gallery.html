@@ -7,6 +7,22 @@
   <title>갤러리 | 행복한교회</title>
   <meta name="description" content="행복한교회의 활동 사진을 담은 갤러리입니다. 날마다 예수 그리스도로 행복을 경험하는 교회입니다." />
 
+  <!-- Open Graph (카카오톡/SNS 공유 미리보기) -->
+  <link rel="canonical" href="https://happy1ch.github.io/HOMEPAGE/gallery.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="갤러리 | 행복한교회" />
+  <meta property="og:description" content="요양원 예배, 시장 차 섬김, 연합 전도 등 행복한교회의 사역 현장" />
+  <meta property="og:image" content="https://happy1ch.github.io/HOMEPAGE/images/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="행복한교회 - 날마다 예수 그리스도로 행복을 경험하는 교회" />
+  <meta property="og:site_name" content="행복한교회" />
+  <meta property="og:url" content="https://happy1ch.github.io/HOMEPAGE/gallery.html" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://happy1ch.github.io/HOMEPAGE/images/og-image.jpg" />
+
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -195,6 +211,34 @@
       .gallery-grid { grid-template-columns: 1fr; }
       footer .inner { flex-direction: column; text-align: center; }
     }
+    /* ── NAV (공통: 메뉴 통일 + 모바일 햄버거) ── */
+    .nav-links { gap: 26px; }
+    .nav-links a.active { color: var(--gold); }
+    .nav-toggle { display: none; width: 44px; height: 44px; background: none; border: 0; cursor: pointer; flex-direction: column; justify-content: center; align-items: center; gap: 5px; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: transform .25s, opacity .25s; }
+    nav.open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    nav.open .nav-toggle span:nth-child(2) { opacity: 0; }
+    nav.open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-logo, .nav-links a, .nav-yt { white-space: nowrap; }
+    .nav-links a { font-size: 0.82rem; letter-spacing: -0.01em; }
+    @media (max-width: 1240px) { .nav-links { gap: 18px; } }
+    [id] { scroll-margin-top: 72px; }
+    @media (max-width: 1080px) {
+      .nav-toggle { display: flex; }
+      .nav-yt { margin-left: auto; margin-right: 6px; }
+      .nav-yt span { display: none; }
+      .nav-links {
+        position: absolute; top: 64px; left: 0; right: 0;
+        flex-direction: column; gap: 0;
+        background: rgba(13, 43, 69, 0.98);
+        padding: 6px 5% 18px;
+        box-shadow: 0 16px 30px rgba(0,0,0,0.25);
+        display: none;
+      }
+      nav.open .nav-links { display: flex; }
+      .nav-links a { display: block; padding: 14px 4px; font-size: 1.05rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    }
+
   </style>
 </head>
 <body>
@@ -202,18 +246,22 @@
   <!-- NAV -->
   <nav>
     <a href="index.html" class="nav-logo">행복한교회</a>
-    <ul class="nav-links">
-      <li><a href="index.html#hero">유튜브</a></li>
+    <ul class="nav-links" id="nav-links">
       <li><a href="about.html">교회 소개</a></li>
       <li><a href="pastor.html">담임목사 소개</a></li>
-      <li><a href="gallery.html" class="active">갤러리</a></li>
       <li><a href="index.html#worship">예배 안내</a></li>
+      <li><a href="index.html#sermons">최근 설교</a></li>
+      <li><a href="gallery.html" class="active" aria-current="page">갤러리</a></li>
+      <li><a href="index.html#newcomer">처음 오셨나요?</a></li>
       <li><a href="index.html#location">오시는 길</a></li>
     </ul>
     <a href="https://www.youtube.com/@happy1ch" target="_blank" rel="noopener" class="nav-yt" aria-label="유튜브 채널">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg>
-      유튜브
+      <span>유튜브</span>
     </a>
+    <button type="button" class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <!-- PAGE HEADER -->
@@ -231,7 +279,7 @@
       <div class="gallery-grid">
         <div class="gallery-item">
           <div class="gallery-img-wrapper">
-            <img src="images/gallery/001.jpg" alt="행복한교회 설립의 감격" />
+            <img src="images/gallery/001.webp" alt="행복한교회 설립의 감격" loading="lazy" decoding="async" />
           </div>
           <div class="gallery-info">
             <h3>설립의 감격</h3>
@@ -245,7 +293,7 @@
       <div class="gallery-grid">
         <div class="gallery-item">
           <div class="gallery-img-wrapper">
-            <img src="images/gallery/KakaoTalk_20250423_143408258.jpg" alt="우리 보금자리 요양원 예배" />
+            <img src="images/gallery/KakaoTalk_20250423_143408258.webp" alt="우리 보금자리 요양원 예배" loading="lazy" decoding="async" />
           </div>
           <div class="gallery-info">
             <h3>우리 보금자리 요양원 예배</h3>
@@ -254,7 +302,7 @@
         </div>
         <div class="gallery-item">
           <div class="gallery-img-wrapper">
-            <img src="images/gallery/20250423_143254.jpg" alt="에덴요양원 사역" />
+            <img src="images/gallery/20250423_143254.webp" alt="에덴요양원 사역" loading="lazy" decoding="async" />
           </div>
           <div class="gallery-info">
             <h3>에덴요양원 사역</h3>
@@ -268,7 +316,7 @@
       <div class="gallery-grid">
         <div class="gallery-item">
           <div class="gallery-img-wrapper">
-            <img src="images/gallery/20250728_185612.jpg" alt="행복한교회 예배" />
+            <img src="images/gallery/20250728_185612.webp" alt="행복한교회 예배" loading="lazy" decoding="async" />
           </div>
           <div class="gallery-info">
             <h3>거룩한 예배</h3>
@@ -277,7 +325,7 @@
         </div>
         <div class="gallery-item">
           <div class="gallery-img-wrapper">
-            <img src="images/gallery/1763174314988.jpg" alt="찬양의 현장" />
+            <img src="images/gallery/1763174314988.webp" alt="찬양의 현장" loading="lazy" decoding="async" />
           </div>
           <div class="gallery-info">
             <h3>뜨거운 찬양</h3>
@@ -291,7 +339,7 @@
       <div class="gallery-grid">
         <div class="gallery-item">
           <div class="gallery-img-wrapper">
-            <img src="images/gallery/002.png" alt="문경 시장 상인 섬김" />
+            <img src="images/gallery/002.webp" alt="문경 시장 상인 섬김" loading="lazy" decoding="async" />
           </div>
           <div class="gallery-info">
             <h3>이웃과 함께하는 기쁨 (시장 상인 섬김)</h3>
@@ -300,7 +348,7 @@
         </div>
         <div class="gallery-item">
           <div class="gallery-img-wrapper">
-            <img src="images/gallery/mission.png" alt="연합과 선교" />
+            <img src="images/gallery/mission.webp" alt="연합과 선교" loading="lazy" decoding="async" />
           </div>
           <div class="gallery-info">
             <h3>연합과 선교</h3>
@@ -309,7 +357,7 @@
         </div>
         <div class="gallery-item">
           <div class="gallery-img-wrapper">
-            <img src="images/gallery/concert.png" alt="행복한 콘서트" />
+            <img src="images/gallery/concert.webp" alt="행복한 콘서트" loading="lazy" decoding="async" />
           </div>
           <div class="gallery-info">
             <h3>찬양과 축제 (행복한 콘서트)</h3>
@@ -338,6 +386,15 @@
     </div>
   </footer>
 
-  <script>document.querySelectorAll('.copy-year').forEach(function(el){el.textContent=new Date().getFullYear();});</script>
+  <script>
+  (function(){
+    var nav=document.querySelector('nav'), btn=nav.querySelector('.nav-toggle');
+    function setOpen(o){ nav.classList.toggle('open',o); btn.setAttribute('aria-expanded',o); btn.setAttribute('aria-label',o?'메뉴 닫기':'메뉴 열기'); }
+    btn.addEventListener('click',function(){ setOpen(!nav.classList.contains('open')); });
+    nav.querySelectorAll('.nav-links a').forEach(function(a){ a.addEventListener('click',function(){ setOpen(false); }); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape') setOpen(false); });
+  })();
+  document.querySelectorAll('.copy-year').forEach(function(el){el.textContent=new Date().getFullYear();});
+</script>
 </body>
 </html>
