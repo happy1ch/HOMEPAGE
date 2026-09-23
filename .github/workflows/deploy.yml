@@ -4,14 +4,17 @@ on:
   push:
     branches: ["main"]
   schedule:
+    - cron: '17 12 * * 6'  # 토 21:17 KST — 주일 예약 라이브 미리 반영
+    - cron: '47 0 * * 0'   # 일 09:47 KST — 주일 라이브 반영
     - cron: '30 2 * * 0'   # 일 11:30 KST — 오전예배 시작
     - cron: '0  5 * * 0'   # 일 14:00 KST — 오전예배 녹화 반영
     - cron: '0  8 * * 0'   # 일 17:00 KST — 오후예배 녹화 반영
+    - cron: '37 9 * * 3'   # 수 18:37 KST — 수요 라이브 반영
     - cron: '30 13 * * 3'  # 수 22:30 KST — 수요예배 녹화 반영
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -35,6 +38,7 @@ jobs:
           RSS=$(curl -s "https://www.youtube.com/feeds/videos.xml?channel_id=UC2seq9scvYNM-_Inf3AFmag")
           VIDEO_ID=$(echo "$RSS" | grep -o '<yt:videoId>[^<]*' | sed 's/<yt:videoId>//' | head -1)
           echo "Latest video: $VIDEO_ID"
+          if [ -z "$VIDEO_ID" ]; then echo "No video id found, skip"; exit 0; fi
           export VIDEO_ID
           python3 - <<'EOF'
           import re, os
@@ -50,6 +54,23 @@ jobs:
               f.write(content)
           print(f'Sermon updated to: {vid}')
           EOF
+
+      # 새 영상 ID를 저장소에 커밋 -> 저장소 활동이 생겨 GitHub가 60일 무활동으로 워크플로를 끄는 것을 방지
+      - name: Commit updated video id (keepalive)
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet index.html; then
+            git add index.html
+            git commit -m "chore: 최신 설교 영상 반영"
+          fi
+          LAST=$(git log -1 --format=%ct)
+          NOW=$(date +%s)
+          if [ $(( (NOW - LAST) / 86400 )) -ge 30 ]; then
+            git commit --allow-empty -m "chore: keepalive"
+          fi
+          git push || echo "push skipped"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
