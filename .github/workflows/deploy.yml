@@ -39,9 +39,10 @@ jobs:
           VIDEO_ID=$(echo "$RSS" | grep -o '<yt:videoId>[^<]*' | sed 's/<yt:videoId>//' | head -1)
           echo "Latest video: $VIDEO_ID"
           if [ -z "$VIDEO_ID" ]; then echo "No video id found, skip"; exit 0; fi
-          export VIDEO_ID
+          export VIDEO_ID RSS
           python3 - <<'EOF'
           import re, os
+          from datetime import datetime, timedelta
           with open('index.html', 'r', encoding='utf-8') as f:
               content = f.read()
           vid = os.environ['VIDEO_ID']
@@ -50,9 +51,38 @@ jobs:
               f'src="https://www.youtube.com/embed/{vid}?rel=0&modestbranding=1"',
               content
           )
+          # 최근 설교 4편 카드 갱신 (같은 설교의 중복 업로드는 제목 앞 5글자로 걸러냄)
+          rss = os.environ.get('RSS', '')
+          cards, seen = [], set()
+          for e in re.findall(r'<entry>(.*?)</entry>', rss, re.S):
+              m_id = re.search(r'<yt:videoId>([^<]+)', e)
+              m_t = re.search(r'<title>([^<]*)', e)
+              m_p = re.search(r'<published>([^<]+)', e)
+              if not (m_id and m_t and m_p):
+                  continue
+              title = m_t.group(1)
+              key = re.sub(r'[^가-힣]', '', re.sub(r'&[a-z]+;', '', title))[:5]
+              if key in seen:
+                  continue
+              seen.add(key)
+              d = datetime.fromisoformat(m_p.group(1)) + timedelta(hours=9)
+              vid_i = m_id.group(1)
+              cards.append(
+                  f'        <a class="sermon-card" href="https://www.youtube.com/watch?v={vid_i}" target="_blank" rel="noopener">'
+                  f'<img src="https://i.ytimg.com/vi/{vid_i}/hqdefault.jpg" alt="" loading="lazy" decoding="async" />'
+                  f'<div class="sermon-body"><h3>{title}</h3><p>{d:%Y.%m.%d}</p></div></a>'
+              )
+              if len(cards) == 4:
+                  break
+          if cards:
+              content = re.sub(
+                  r'(<!-- SERMONS:START[^>]*-->\n).*?(\n\s*<!-- SERMONS:END -->)',
+                  lambda m: m.group(1) + '\n'.join(cards) + m.group(2),
+                  content, flags=re.S
+              )
           with open('index.html', 'w', encoding='utf-8') as f:
               f.write(content)
-          print(f'Sermon updated to: {vid}')
+          print(f'Sermon updated to: {vid}, recent cards: {len(cards)}')
           EOF
 
       # 새 영상 ID를 저장소에 커밋 -> 저장소 활동이 생겨 GitHub가 60일 무활동으로 워크플로를 끄는 것을 방지
