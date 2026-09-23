@@ -280,8 +280,9 @@
   <footer>
     <div class="inner">
       <div class="brand">행복한교회</div>
-      <p>© 2025 행복한교회. All rights reserved.</p>
+      <p>© <span class="copy-year">2026</span> 행복한교회. All rights reserved.</p>
     </div>
   </footer>
+  <script>document.querySelectorAll('.copy-year').forEach(function(el){el.textContent=new Date().getFullYear();});</script>
 </body>
 </html>
